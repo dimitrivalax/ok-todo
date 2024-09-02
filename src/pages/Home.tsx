@@ -1,6 +1,7 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import { useTranslation } from 'react-i18next';
+import HomeContainer from '../components/home/HomeContainer';
 
 const Home: React.FC = () => {
   const { t } = useTranslation("global");
@@ -17,7 +18,7 @@ const Home: React.FC = () => {
             <IonTitle size="large">{t('Home.title')}</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name={t('Home.title')} />
+        <HomeContainer></HomeContainer>
       </IonContent>
     </IonPage>
   );

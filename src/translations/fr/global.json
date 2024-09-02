@@ -1,5 +1,10 @@
 {
   "Home": {
-    "title": "Accueil"
+    "title": "Accueil",
+    "today": "Aujourd'hui",
+    "tomorrow": "Demain",
+    "next_week": "Semaine prochaine",
+    "one_day": "Un jour",
+    "delete_all": "Supprimer tout"
   }
 }

@@ -1,5 +1,10 @@
 {
 	"Home": {
-		"title": "Home"
+		"title": "Home",
+		"today": "Today",
+		"tomorrow": "Tomorrow",
+		"next_week": "Next week",
+		"one_day": "One day",
+		"delete_all": "Delete all"
 	}
 }
