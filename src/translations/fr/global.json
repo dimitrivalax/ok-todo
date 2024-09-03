@@ -1,10 +1,16 @@
 {
   "Home": {
     "title": "Accueil",
+    "task": "Tache",
+    "new_task": "Nouvelle tache",
+    "what": "Quoi ?",
+    "when": "Quand ?",
     "today": "Aujourd'hui",
     "tomorrow": "Demain",
     "next_week": "Semaine prochaine",
     "one_day": "Un jour",
-    "delete_all": "Supprimer tout"
+    "delete_all": "Supprimer tout",
+    "save": "Sauver",
+    "close": "Fermer"
   }
 }

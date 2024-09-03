@@ -1,9 +1,12 @@
 import { IonButton, IonFab, IonFabButton, IonIcon, IonItem, IonLabel, IonList, IonListHeader } from "@ionic/react";
 import { add } from 'ionicons/icons';
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import TaskModal from "../task/TaskModal";
 
 const HomeContainer: React.FC = () => {
 	const { t } = useTranslation("global");
+	const [openNewTaskModal, setOpenNewTaskModal] = useState(false)
 	return (
 		<>
 			<IonList inset={true}>
@@ -43,10 +46,11 @@ const HomeContainer: React.FC = () => {
 				</IonItem>
 			</IonList>
 			<IonFab horizontal="end" vertical="bottom" slot="fixed">
-				<IonFabButton>
+				<IonFabButton onClick={()=> setOpenNewTaskModal(true)}>
 					<IonIcon icon={add}></IonIcon>
 				</IonFabButton>
 			</IonFab>
+			{openNewTaskModal && <TaskModal onClose={() => setOpenNewTaskModal(false) } ></TaskModal>}
 		</>
 	);
 };

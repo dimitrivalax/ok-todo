@@ -2,9 +2,15 @@
 	"Home": {
 		"title": "Home",
 		"today": "Today",
+		"task": "Task",
+		"new_task": "New task",
+		"what": "What?",
+		"when": "When?",
 		"tomorrow": "Tomorrow",
 		"next_week": "Next week",
 		"one_day": "One day",
-		"delete_all": "Delete all"
+		"delete_all": "Delete all",
+		"save": "Save",
+		"close": "Fermer"
 	}
 }
