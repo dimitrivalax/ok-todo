@@ -4,13 +4,16 @@
 		"today": "Today",
 		"task": "Task",
 		"new_task": "New task",
+		"update_task": "Update task",
 		"what": "What?",
 		"when": "When?",
 		"tomorrow": "Tomorrow",
 		"next_week": "Next week",
 		"one_day": "One day",
+		"delete": "Delete",
 		"delete_all": "Delete all",
 		"save": "Save",
+		"cancel": "Cancel",
 		"close": "Fermer"
 	}
 }

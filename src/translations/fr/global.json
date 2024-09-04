@@ -3,6 +3,7 @@
     "title": "Accueil",
     "task": "Tache",
     "new_task": "Nouvelle tache",
+    "update_task": "Modifier",
     "what": "Quoi ?",
     "when": "Quand ?",
     "today": "Aujourd'hui",
@@ -10,7 +11,9 @@
     "next_week": "Semaine prochaine",
     "one_day": "Un jour",
     "delete_all": "Supprimer tout",
+    "delete": "Supprimer",
     "save": "Sauver",
+    "cancel": "Annuler",
     "close": "Fermer"
   }
 }

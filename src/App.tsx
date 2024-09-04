@@ -43,6 +43,8 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+/* Theme global css */
+import './theme/global.css';
 import Home from './pages/Home';
 import { useTranslation } from 'react-i18next';
 

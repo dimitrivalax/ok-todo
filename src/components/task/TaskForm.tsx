@@ -1,31 +1,35 @@
-import { IonAvatar, IonButton, IonButtons, IonContent, IonFooter, IonHeader, IonImg, IonInput, IonItem, IonLabel, IonList, IonModal, IonSelect, IonSelectOption, IonTitle, IonToolbar } from '@ionic/react';
+import { IonInput, IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface Props {
-
+  task: Task
+  onChange: (task: Task) => void;
 }
 
 const TaskForm: React.FC<Props> = (props) => {
   const { t } = useTranslation("global");
+  const [taskForm, setTaskForm] = useState(props.task)
+
+  	// EFFECTS
+	useEffect(() => {
+		setTaskForm(props.task)
+	}, [props.task]);
 
   return (
     <>
       <IonList>
         <IonItem>
-          <IonInput label={t('Home.what')} labelPlacement="floating"></IonInput>
+          <IonInput label={t('Home.what')} labelPlacement="floating" onIonChange={ev => props.onChange({...props.task, label: ev.target.value as string})} type='text' value={taskForm.label}></IonInput>
         </IonItem>
         <IonItem>
-          <IonSelect label={t('Home.when')} labelPlacement="floating" interface="popover">
-            <IonSelectOption value={t('Home.today')}>{t('Home.today')}</IonSelectOption>
-            <IonSelectOption value={t('Home.tomorrow')}>{t('Home.tomorrow')}</IonSelectOption>
-            <IonSelectOption value={t('Home.next_week')}>{t('Home.next_week')}</IonSelectOption>
-            <IonSelectOption value={t('Home.one_day')}>{t('Home.one_day')}</IonSelectOption>
+          <IonSelect label={t('Home.when')} labelPlacement="floating" interface="popover" value={taskForm.dueDate} onIonChange={ev => props.onChange({...props.task, dueDate: ev.target.value as string})}>
+            <IonSelectOption value="today">{t('Home.today')}</IonSelectOption>
+            <IonSelectOption value="tomorrow">{t('Home.tomorrow')}</IonSelectOption>
+            <IonSelectOption value="one_day">{t('Home.one_day')}</IonSelectOption>
           </IonSelect>
         </IonItem>
       </IonList>
-      <IonButton className="ion-float-right ion-margin-top">
-      {t('Home.save')}
-      </IonButton>
     </>
   );
 };

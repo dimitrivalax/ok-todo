@@ -1,6 +1,6 @@
 type Task = {
 	id: string;
 	label: string;
-	dueDate: Date;
+	dueDate: string;
 	complete: boolean;
-  }
+}
