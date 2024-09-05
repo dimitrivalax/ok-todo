@@ -1,9 +1,32 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.ok.todo',
   appName: 'Ok! Todo',
-  webDir: 'dist'
+  webDir: 'dist',
+  "plugins": {
+    // "SplashScreen": {
+    //   "launchShowDuration": 2000,
+    //   "launchAutoHide": true,
+    //   "launchFadeOutDuration": 1000,
+    //   "backgroundColor": "#FFFFF",
+    //   "androidSplashResourceName": "splash",
+    //   "androidScaleType": "CENTER_CROP",
+    //   "showSpinner": true,
+    //   "androidSpinnerStyle": "large",
+    //   "iosSpinnerStyle": "small",
+    //   "spinnerColor": "#383838",
+    //   "splashFullScreen": true,
+    //   "splashImmersive": true,
+    //   "layoutName": "launch_screen",
+    //   "useDialog": true
+    // },
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_icon_config_sample",
+      "iconColor": "#35C89E",
+      "sound": "beep.wav"
+    }
+  }
 };
 
 export default config;

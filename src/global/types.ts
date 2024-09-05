@@ -3,4 +3,5 @@ type Task = {
 	label: string;
 	dueDate: string;
 	complete: boolean;
+	notificationId?: number;
 }

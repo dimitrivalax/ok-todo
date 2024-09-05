@@ -34,7 +34,7 @@ const TaskModal: React.FC<Props> = (props) => {
     props.onClose()
   }
   function remove() {
-    removeTask(props.task.id)
+    removeTask(props.task)
     props.onClose()
   }
 

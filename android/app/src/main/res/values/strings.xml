@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ok! Todo</string>
+    <string name="title_activity_main">Ok! Todo</string>
+    <string name="package_name">com.ok.todo</string>
+    <string name="custom_url_scheme">com.ok.todo</string>
+</resources>

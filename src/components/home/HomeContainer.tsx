@@ -82,7 +82,7 @@ const HomeContainer: React.FC = () => {
 				id: "",
 				label: "",
 				dueDate: "today",
-				complete: false
+				complete: false,
 			}} ></TaskModal>}
 		</>
 	);
