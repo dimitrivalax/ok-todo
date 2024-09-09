@@ -1,4 +1,4 @@
-import { IonCard, IonInput, IonItem, IonList } from "@ionic/react";
+import { IonCard, IonInput, IonItem, IonLabel, IonList, IonListHeader } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import * as settingsServices from "../../services/settings.services";
@@ -25,15 +25,17 @@ const SettingsContainer: React.FC = () => {
 
 	return (
 		<>
-
-			<IonList>
-				<IonCard>
+			<IonCard>
+				<IonList inset={true}>
+					<IonListHeader color="danger">
+						<IonLabel>{t('Settings.notifications')}</IonLabel>
+					</IonListHeader>
 					<IonItem>
 						<IonInput label={t('Settings.time_notifications_label')} labelPlacement="floating" onIonChange={ev => saveSettings({ ...settingsForm, notificationTime: ev.target.value as string })} type='time' value={settingsForm.notificationTime}></IonInput>
 					</IonItem>
-				</IonCard>
-			</IonList>
 
+				</IonList>
+			</IonCard>
 		</>
 	);
 };

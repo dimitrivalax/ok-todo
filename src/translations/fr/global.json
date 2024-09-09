@@ -19,6 +19,7 @@
   },
   "Settings": {
     "title": "Réglages",
-    "time_notifications_label": "À quelle heure les notifs ?"
+    "time_notifications_label": "À quelle heure les notifs ?",
+    "notifications": "Notifications"
   }
 }
