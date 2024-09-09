@@ -6,3 +6,7 @@ type Task = {
 	complete: boolean;
 	notificationId?: number;
 }
+
+type Settings = {
+	notificationTime: string;
+}

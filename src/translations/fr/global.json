@@ -18,6 +18,7 @@
     "close": "Fermer"
   },
   "Settings": {
-    "title": "Réglages"
+    "title": "Réglages",
+    "time_notifications_label": "À quelle heure les notifs ?"
   }
 }

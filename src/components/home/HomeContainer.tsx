@@ -1,4 +1,4 @@
-import { IonFab, IonFabButton, IonIcon, IonItem, IonItemOption, IonItemOptions, IonItemSliding, IonLabel, IonList, IonListHeader } from "@ionic/react";
+import { IonCard, IonFab, IonFabButton, IonIcon, IonItem, IonItemOption, IonItemOptions, IonItemSliding, IonLabel, IonList, IonListHeader } from "@ionic/react";
 import { add, trashSharp } from 'ionicons/icons';
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -47,38 +47,42 @@ const HomeContainer: React.FC = () => {
 
 	return (
 		<>
-			<IonList inset={true}>
-				<IonListHeader color="success">
-					<IonLabel>{t('Home.today')}</IonLabel>
-				</IonListHeader>
-				{getFilteredTasks("today").map((task: Task) =>
-					<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTack(task)} onSwipeRight={(task:Task) => taskDone(task)} onSwipeLeft={(task:Task) => taskUnDone(task) }></TaskItem>
-				)}
-			</IonList>
-			<IonList inset={true}>
-				<IonListHeader color="warning">
-					<IonLabel>{t('Home.tomorrow')}</IonLabel>
-				</IonListHeader>
-				{getFilteredTasks("tomorrow").map((task: Task) =>
+			<IonCard>
+				<IonList inset={true}>
+					<IonListHeader color="success">
+						<IonLabel>{t('Home.today')}</IonLabel>
+					</IonListHeader>
+					{getFilteredTasks("today").map((task: Task) =>
+						<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTack(task)} onSwipeRight={(task: Task) => taskDone(task)} onSwipeLeft={(task: Task) => taskUnDone(task)}></TaskItem>
+					)}
+				</IonList>
+			</IonCard>
+			<IonCard>
+				<IonList inset={true}>
+					<IonListHeader color="warning">
+						<IonLabel>{t('Home.tomorrow')}</IonLabel>
+					</IonListHeader>
+					{getFilteredTasks("tomorrow").map((task: Task) =>
 
-					<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTack(task)} onSwipeRight={(task:Task) => taskDone(task)} onSwipeLeft={(task:Task) => taskUnDone(task) }></TaskItem>
+						<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTack(task)} onSwipeRight={(task: Task) => taskDone(task)} onSwipeLeft={(task: Task) => taskUnDone(task)}></TaskItem>
 
-				)}
-			</IonList>
-			<IonList inset={true}>
-				<IonListHeader color="danger">
-					<IonLabel>{t('Home.one_day')}</IonLabel>
-				</IonListHeader>
-				{getFilteredTasks("one_day").map((task: Task) =>
-					<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTack(task)} onSwipeRight={(task:Task) => taskDone(task)} onSwipeLeft={(task:Task) => taskUnDone(task) }></TaskItem>
-				)}
-			</IonList>
+					)}
+				</IonList></IonCard><IonCard>
+				<IonList inset={true}>
+					<IonListHeader color="danger">
+						<IonLabel>{t('Home.one_day')}</IonLabel>
+					</IonListHeader>
+					{getFilteredTasks("one_day").map((task: Task) =>
+						<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTack(task)} onSwipeRight={(task: Task) => taskDone(task)} onSwipeLeft={(task: Task) => taskUnDone(task)}></TaskItem>
+					)}
+				</IonList>
+			</IonCard>
 			<IonFab horizontal="end" vertical="bottom" slot="fixed">
 				<IonFabButton onClick={() => setOpenNewTaskModal(true)}>
 					<IonIcon icon={add}></IonIcon>
 				</IonFabButton>
 			</IonFab>
-			{openNewTaskModal  && <TaskModal onClose={() => closeTaskModal()} task={selectedTask || {
+			{openNewTaskModal && <TaskModal onClose={() => closeTaskModal()} task={selectedTask || {
 				id: "",
 				label: "",
 				dueDate: "today",

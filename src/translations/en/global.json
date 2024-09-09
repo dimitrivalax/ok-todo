@@ -18,6 +18,7 @@
 		"close": "Fermer"
 	},
 	"Settings": {
-	  "title": "Settings"
+	  "title": "Settings",
+    "time_notifications_label": "Notifications hour ?"
 	}
 }

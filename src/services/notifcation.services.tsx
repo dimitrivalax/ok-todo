@@ -1,16 +1,17 @@
 import { CancelOptions, LocalNotifications } from "@capacitor/local-notifications";
-import { t } from "i18next";
-import { notifications } from "ionicons/icons";
+import * as settingsServices from './settings.services'
 
 // ( doc : https://ionicframework.com/docs/native/local-notifications )
 export async function createNotification(body: string, dueTime: string | null, existingId?: number): Promise<number> {
 	let notificationId = -1;
+	console.log('createNotification :::: ', body)
 	if ((await LocalNotifications.requestPermissions()).display === 'granted') {
+		const notificationTime = settingsServices.getNotificationTimeHourAndMinute()
 		notificationId = existingId || Math.floor(Math.random() * 600000000);
 		await LocalNotifications.schedule({
 			notifications: [
 				{
-					title: "Aujourd'hui",
+					title: dueTime ? `${notificationTime[0]}h${notificationTime[1]}`: "Aujourd'hui",
 					body,
 					largeIcon: "ic_launcher",
 					smallIcon: "ic_launcher",
@@ -18,8 +19,8 @@ export async function createNotification(body: string, dueTime: string | null, e
 					schedule: {
 						allowWhileIdle: true,
 						on: {
-							hour: dueTime? parseInt(dueTime.split(":")[0]) : 8,
-							minute: dueTime? parseInt(dueTime.split(":")[1]) : 30,
+							hour: dueTime? parseInt(dueTime.split(":")[0]) : notificationTime[0],
+							minute: dueTime? parseInt(dueTime.split(":")[1]) : notificationTime[1],
 						},
 					},
 				},

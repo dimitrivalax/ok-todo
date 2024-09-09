@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonCard, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import { useTranslation } from 'react-i18next';
 import HomeContainer from '../components/home/HomeContainer';
@@ -18,7 +18,7 @@ const Home: React.FC = () => {
             <IonTitle size="large">{t('Home.title')}</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <HomeContainer></HomeContainer>
+          <HomeContainer></HomeContainer>
       </IonContent>
     </IonPage>
   );
