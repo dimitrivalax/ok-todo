@@ -24,11 +24,11 @@ const TaskModal: React.FC<Props> = (props) => {
     setSaveDisabled(false)
   }
 
-  function save() {
+  async function save() {
     if (task.id) {
-      updateTask(task)
+      await updateTask(task)
     } else {
-      saveNewtTask(task)
+      await saveNewtTask(task)
     }
 
     props.onClose()

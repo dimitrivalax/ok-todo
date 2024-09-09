@@ -7,6 +7,7 @@
 		"update_task": "Update task",
 		"what": "What?",
 		"when": "When?",
+		"when_hour": "At what time?",
 		"tomorrow": "Tomorrow",
 		"next_week": "Next week",
 		"one_day": "One day",
@@ -15,5 +16,8 @@
 		"save": "Save",
 		"cancel": "Cancel",
 		"close": "Fermer"
+	},
+	"Settings": {
+	  "title": "Settings"
 	}
 }

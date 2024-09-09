@@ -48,7 +48,7 @@ const HomeContainer: React.FC = () => {
 	return (
 		<>
 			<IonList inset={true}>
-				<IonListHeader>
+				<IonListHeader color="success">
 					<IonLabel>{t('Home.today')}</IonLabel>
 				</IonListHeader>
 				{getFilteredTasks("today").map((task: Task) =>
@@ -56,7 +56,7 @@ const HomeContainer: React.FC = () => {
 				)}
 			</IonList>
 			<IonList inset={true}>
-				<IonListHeader>
+				<IonListHeader color="warning">
 					<IonLabel>{t('Home.tomorrow')}</IonLabel>
 				</IonListHeader>
 				{getFilteredTasks("tomorrow").map((task: Task) =>
@@ -66,7 +66,7 @@ const HomeContainer: React.FC = () => {
 				)}
 			</IonList>
 			<IonList inset={true}>
-				<IonListHeader>
+				<IonListHeader color="danger">
 					<IonLabel>{t('Home.one_day')}</IonLabel>
 				</IonListHeader>
 				{getFilteredTasks("one_day").map((task: Task) =>
@@ -82,6 +82,7 @@ const HomeContainer: React.FC = () => {
 				id: "",
 				label: "",
 				dueDate: "today",
+				dueTime: null,
 				complete: false,
 			}} ></TaskModal>}
 		</>

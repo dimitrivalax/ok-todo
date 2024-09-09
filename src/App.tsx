@@ -10,9 +10,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import { homeSharp, settingsSharp } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -47,6 +45,7 @@ import './theme/variables.css';
 import './theme/global.css';
 import Home from './pages/Home';
 import { useTranslation } from 'react-i18next';
+import Settings from './pages/Settings';
 
 setupIonicReact();
 
@@ -59,11 +58,8 @@ const App: React.FC = () => {
           <Route exact path="/home">
             <Home />
           </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
-          </Route>
-          <Route path="/tab3">
-            <Tab3 />
+          <Route exact path="/settings">
+            <Settings />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />
@@ -71,16 +67,12 @@ const App: React.FC = () => {
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/home">
-            <IonIcon aria-hidden="true" icon={triangle} />
+            <IonIcon aria-hidden="true" icon={homeSharp} />
             <IonLabel>{t('Home.title')}</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+          <IonTabButton tab="settings" href="/settings">
+            <IonIcon aria-hidden="true" icon={settingsSharp} />
+            <IonLabel>{t('Settings.title')}</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

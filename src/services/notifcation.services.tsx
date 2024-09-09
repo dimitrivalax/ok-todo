@@ -3,7 +3,7 @@ import { t } from "i18next";
 import { notifications } from "ionicons/icons";
 
 // ( doc : https://ionicframework.com/docs/native/local-notifications )
-export async function createNotification(body: string, existingId?: number): Promise<number> {
+export async function createNotification(body: string, dueTime: string | null, existingId?: number): Promise<number> {
 	let notificationId = -1;
 	if ((await LocalNotifications.requestPermissions()).display === 'granted') {
 		notificationId = existingId || Math.floor(Math.random() * 600000000);
@@ -18,11 +18,8 @@ export async function createNotification(body: string, existingId?: number): Pro
 					schedule: {
 						allowWhileIdle: true,
 						on: {
-							// month: period === "year" ? date?.getMonth() : undefined,
-							// day: period === "month" || period === "year" ? date?.getDate() : undefined,
-							// weekday: period === "week" ? date?.getDay() : undefined,
-							hour: 8,
-							minute: 30,
+							hour: dueTime? parseInt(dueTime.split(":")[0]) : 8,
+							minute: dueTime? parseInt(dueTime.split(":")[1]) : 30,
 						},
 					},
 				},

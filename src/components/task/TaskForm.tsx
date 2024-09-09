@@ -1,4 +1,4 @@
-import { IonInput, IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/react';
+import { IonDatetime, IonInput, IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -26,8 +26,11 @@ const TaskForm: React.FC<Props> = (props) => {
           <IonSelect label={t('Home.when')} labelPlacement="floating" interface="popover" value={taskForm.dueDate} onIonChange={ev => props.onChange({...props.task, dueDate: ev.target.value as string})}>
             <IonSelectOption value="today">{t('Home.today')}</IonSelectOption>
             <IonSelectOption value="tomorrow">{t('Home.tomorrow')}</IonSelectOption>
-            <IonSelectOption value="one_day">{t('Home.one_day')}</IonSelectOption>
+            <IonSelectOption value="one_day">{t('Home.one_day')}</IonSelectOption>èy§u
           </IonSelect>
+        </IonItem>
+        <IonItem>
+          <IonInput label={t('Home.when_hour')} labelPlacement="floating" onIonChange={ev => props.onChange({...props.task, dueTime: ev.target.value as string})} type='time' value={taskForm.dueTime}></IonInput>
         </IonItem>
       </IonList>
     </>

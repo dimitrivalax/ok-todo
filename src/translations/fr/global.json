@@ -6,6 +6,7 @@
     "update_task": "Modifier",
     "what": "Quoi ?",
     "when": "Quand ?",
+    "when_hour": "À quelle heure ?",
     "today": "Aujourd'hui",
     "tomorrow": "Demain",
     "next_week": "Semaine prochaine",
@@ -15,5 +16,8 @@
     "save": "Sauver",
     "cancel": "Annuler",
     "close": "Fermer"
+  },
+  "Settings": {
+    "title": "Réglages"
   }
 }
