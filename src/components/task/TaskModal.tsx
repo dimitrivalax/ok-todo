@@ -57,7 +57,7 @@ const TaskModal: React.FC<Props> = (props) => {
           <IonRow class="ion-justify-content-center ion-margin-top">
             <IonButton shape="round" color="danger" onClick={() => remove()}>
               <IonIcon slot="start" icon={trashOutline}></IonIcon>
-              {t('delete')}
+              {t('Home.delete')}
             </IonButton>
           </IonRow>
         }

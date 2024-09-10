@@ -19,7 +19,7 @@
 	},
 	"Settings": {
 	  "title": "Settings",
-    "time_notifications_label": "Notifications hour ?",
-    "notifications": "Notifications"
+		"time_notifications_label": "Notifications hour ?",
+		"notifications": "Notifications"
 	}
 }

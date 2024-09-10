@@ -25,9 +25,9 @@ const SettingsContainer: React.FC = () => {
 
 	return (
 		<>
-			<IonCard>
-				<IonList inset={true}>
-					<IonListHeader color="danger">
+			<IonCard mode="ios">
+				<IonList inset={true} lines="none">
+					<IonListHeader color="success">
 						<IonLabel>{t('Settings.notifications')}</IonLabel>
 					</IonListHeader>
 					<IonItem>

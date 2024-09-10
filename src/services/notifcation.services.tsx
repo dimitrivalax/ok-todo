@@ -11,7 +11,7 @@ export async function createNotification(body: string, dueTime: string | null, e
 		await LocalNotifications.schedule({
 			notifications: [
 				{
-					title: dueTime ? `${notificationTime[0]}h${notificationTime[1]}`: "Aujourd'hui",
+					title: "Allez !",
 					body,
 					largeIcon: "ic_launcher",
 					smallIcon: "ic_launcher",

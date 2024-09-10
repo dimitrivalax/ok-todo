@@ -47,8 +47,8 @@ const HomeContainer: React.FC = () => {
 
 	return (
 		<>
-			<IonCard>
-				<IonList inset={true}>
+			<IonCard mode="ios">
+				<IonList inset={true} lines="inset">
 					<IonListHeader color="success">
 						<IonLabel>{t('Home.today')}</IonLabel>
 					</IonListHeader>
@@ -57,8 +57,8 @@ const HomeContainer: React.FC = () => {
 					)}
 				</IonList>
 			</IonCard>
-			<IonCard>
-				<IonList inset={true}>
+			<IonCard mode="ios">
+				<IonList inset={true} lines="inset">
 					<IonListHeader color="warning">
 						<IonLabel>{t('Home.tomorrow')}</IonLabel>
 					</IonListHeader>
@@ -67,8 +67,10 @@ const HomeContainer: React.FC = () => {
 						<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTack(task)} onSwipeRight={(task: Task) => taskDone(task)} onSwipeLeft={(task: Task) => taskUnDone(task)}></TaskItem>
 
 					)}
-				</IonList></IonCard><IonCard>
-				<IonList inset={true}>
+				</IonList>
+			</IonCard>
+			<IonCard mode="ios">
+				<IonList inset={true} lines="inset">
 					<IonListHeader color="danger">
 						<IonLabel>{t('Home.one_day')}</IonLabel>
 					</IonListHeader>

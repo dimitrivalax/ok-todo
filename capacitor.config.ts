@@ -23,6 +23,7 @@ const config: CapacitorConfig = {
     // },
     "LocalNotifications": {
       "smallIcon": "ic_launcher",
+      "icon": "ic_launcher",
       "iconColor": "#39AFEA",
     }
   }
