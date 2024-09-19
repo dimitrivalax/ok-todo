@@ -15,7 +15,7 @@ export const saveNewtTask = async (task: Task) => {
 	const tasksString = localStorage.getItem('tasks');
 	const tasks = tasksString ? JSON.parse(tasksString) as Array<Task> : []
 	
-	if (task.dueDate === 'today'){
+	if (task.dueTime){
 		task.notificationId = await notificationService.createNotification(task.label, task.dueTime);
 	}
 	
@@ -41,7 +41,7 @@ export const updateTask= async (task: Task) => {
 	if (task.complete){
 		notificationService.cancelNotification(task.notificationId!)
 	} else {
-		if (task.dueDate === 'today'){
+		if (task.dueTime){
 			await notificationService.createNotification(task.label, task.dueTime, task.notificationId)
 		} else {
 			notificationService.cancelNotification(task.notificationId!)
