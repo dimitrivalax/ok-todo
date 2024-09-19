@@ -22,8 +22,9 @@ const config: CapacitorConfig = {
     //   "useDialog": true
     // },
     "LocalNotifications": {
-      "smallIcon": "ic_launcher",
-      "icon": "ic_launcher",
+      "icon": "notif_icon",
+      "smallIcon": "notif_icon",
+      "largeIcon": "ic_launcher",
       "iconColor": "#39AFEA",
     }
   }

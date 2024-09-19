@@ -5,7 +5,7 @@ import HomeContainer from '../components/home/HomeContainer';
 import SettingsContainer from '../components/settings/SettingsContainer';
 
 const Settings: React.FC = () => {
-  const { t } = useTranslation("global");
+  const { t } = useTranslation();
   return (
     <IonPage>
       <IonHeader >

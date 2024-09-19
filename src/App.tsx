@@ -46,11 +46,19 @@ import './theme/global.css';
 import Home from './pages/Home';
 import { useTranslation } from 'react-i18next';
 import Settings from './pages/Settings';
+import { useEffect } from 'react';
+import { createOrUpdateMainNotification } from './services/notifcation.services';
 
 setupIonicReact();
 
+
+
 const App: React.FC = () => {
-  const { t } = useTranslation("global");
+  const { t } = useTranslation();
+  // EFFECTS
+  useEffect(() => {
+    createOrUpdateMainNotification();
+  }, []);
   return <IonApp>
     <IonReactRouter>
       <IonTabs>

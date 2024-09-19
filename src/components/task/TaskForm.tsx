@@ -8,7 +8,7 @@ interface Props {
 }
 
 const TaskForm: React.FC<Props> = (props) => {
-  const { t } = useTranslation("global");
+  const { t } = useTranslation();
   const [taskForm, setTaskForm] = useState(props.task)
 
   	// EFFECTS
@@ -25,8 +25,7 @@ const TaskForm: React.FC<Props> = (props) => {
         <IonItem>
           <IonSelect label={t('Home.when')} labelPlacement="floating" interface="popover" value={taskForm.dueDate} onIonChange={ev => props.onChange({...props.task, dueDate: ev.target.value as string})}>
             <IonSelectOption value="today">{t('Home.today')}</IonSelectOption>
-            <IonSelectOption value="tomorrow">{t('Home.tomorrow')}</IonSelectOption>
-            <IonSelectOption value="one_day">{t('Home.one_day')}</IonSelectOption>èy§u
+            <IonSelectOption value="one_day">{t('Home.one_day')}</IonSelectOption>
           </IonSelect>
         </IonItem>
         <IonItem>

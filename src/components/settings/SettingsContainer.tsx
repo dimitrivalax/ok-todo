@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import * as settingsServices from "../../services/settings.services";
 
 const SettingsContainer: React.FC = () => {
-	const { t } = useTranslation("global");
+	const { t } = useTranslation();
 	const [settingsForm, setSettingsForm] = useState<Settings>({ notificationTime: "" })
 
 

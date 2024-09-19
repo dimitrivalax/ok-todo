@@ -11,7 +11,7 @@ interface Props {
 }
 
 const TaskModal: React.FC<Props> = (props) => {
-  const { t } = useTranslation("global");
+  const { t } = useTranslation();
   const [task, setTask] = useState<Task>(props.task)
   const [saveDisabled, setSaveDisabled] = useState(true)
 

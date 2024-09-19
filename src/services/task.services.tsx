@@ -44,7 +44,7 @@ export const updateTask= async (task: Task) => {
 		if (task.dueDate === 'today'){
 			await notificationService.createNotification(task.label, task.dueTime, task.notificationId)
 		} else {
-			await notificationService.cancelNotification(task.notificationId!)
+			notificationService.cancelNotification(task.notificationId!)
 		}
 		
 	}

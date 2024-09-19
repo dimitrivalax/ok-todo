@@ -1,24 +1,12 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import i18next from 'i18next';
-import global_en from "./translations/en/global.json";
-import global_fr from "./translations/fr/global.json";
+
 import { I18nextProvider } from 'react-i18next';
 import { ActionPerformed, LocalNotifications, LocalNotificationSchema } from '@capacitor/local-notifications';
+import i18next from './translations/i18n';
 
-i18next.init({
-  interpolation: { escapeValue: false },
-  lng: "fr",
-  resources: {
-    fr: {
-      global: global_fr,
-    },
-    en: {
-      global: global_en,
-    }
-  },
-});
+
 
   LocalNotifications.addListener('localNotificationReceived',(notification : LocalNotificationSchema) => {
     console.log('NOTIF RECEVEID ::: ', JSON.stringify(notification))

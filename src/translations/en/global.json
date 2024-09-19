@@ -21,5 +21,10 @@
 	  "title": "Settings",
 		"time_notifications_label": "Notifications hour ?",
 		"notifications": "Notifications"
+	},
+	"Notifications": {
+		"let_s_go":"Let's go!",
+		"what_are_you_going_to_do_today": "what are you going to do today?",
+		"plan_your_day": "Plan your day..."
 	}
 }

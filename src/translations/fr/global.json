@@ -21,5 +21,10 @@
     "title": "Réglages",
     "time_notifications_label": "À quelle heure les notifs ?",
     "notifications": "Notifications"
+  },
+  "Notifications": {
+    "let_s_go":"Allez !",
+    "what_are_you_going_to_do_today": "Que vas tu faire aujourd'hui ?",
+    "plan_your_day": "Plannifie ta journée ..."
   }
 }

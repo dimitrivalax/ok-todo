@@ -7,7 +7,7 @@ import { getTasks, removeTask, updateTask } from "../../services/task.services";
 import TaskItem from "../task/TaskItem";
 
 const HomeContainer: React.FC = () => {
-	const { t } = useTranslation("global");
+	const { t } = useTranslation();
 	const [openNewTaskModal, setOpenNewTaskModal] = useState(false)
 	const [selectedTask, setSelectedTask] = useState<Task>()
 	const [tasks, setTasks] = useState<Task[]>([])
@@ -49,23 +49,11 @@ const HomeContainer: React.FC = () => {
 		<>
 			<IonCard mode="ios">
 				<IonList inset={true} lines="inset">
-					<IonListHeader color="success">
+					<IonListHeader color="warning">
 						<IonLabel>{t('Home.today')}</IonLabel>
 					</IonListHeader>
 					{getFilteredTasks("today").map((task: Task) =>
 						<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTack(task)} onSwipeRight={(task: Task) => taskDone(task)} onSwipeLeft={(task: Task) => taskUnDone(task)}></TaskItem>
-					)}
-				</IonList>
-			</IonCard>
-			<IonCard mode="ios">
-				<IonList inset={true} lines="inset">
-					<IonListHeader color="warning">
-						<IonLabel>{t('Home.tomorrow')}</IonLabel>
-					</IonListHeader>
-					{getFilteredTasks("tomorrow").map((task: Task) =>
-
-						<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTack(task)} onSwipeRight={(task: Task) => taskDone(task)} onSwipeLeft={(task: Task) => taskUnDone(task)}></TaskItem>
-
 					)}
 				</IonList>
 			</IonCard>

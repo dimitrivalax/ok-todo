@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import HomeContainer from '../components/home/HomeContainer';
 
 const Home: React.FC = () => {
-  const { t } = useTranslation("global");
+  const { t } = useTranslation();
   return (
     <IonPage>
       <IonHeader >
