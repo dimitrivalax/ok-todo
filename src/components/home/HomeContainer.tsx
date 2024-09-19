@@ -1,10 +1,11 @@
 import { IonCard, IonFab, IonFabButton, IonIcon, IonItem, IonItemOption, IonItemOptions, IonItemSliding, IonLabel, IonList, IonListHeader } from "@ionic/react";
-import { add, trashSharp } from 'ionicons/icons';
+import { add } from 'ionicons/icons';
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import TaskModal from "../task/TaskModal";
-import { getTasks, removeTask, updateTask } from "../../services/task.services";
+import { getTasks, updateTask } from "../../services/task.services";
 import TaskItem from "../task/TaskItem";
+import { format } from "date-fns";
 
 const HomeContainer: React.FC = () => {
 	const { t } = useTranslation();
@@ -13,7 +14,20 @@ const HomeContainer: React.FC = () => {
 	const [tasks, setTasks] = useState<Task[]>([])
 
 	function getFilteredTasks(dueDate: string): Task[] {
-		return tasks.filter((task: Task) => task.dueDate === dueDate);
+		const nowTime = format(new Date(), "hh:mm")
+		switch (dueDate) {
+			case 'today':
+				return tasks.filter((task: Task) => task.dueTime && task.dueTime > nowTime);
+			case 'tomorrow':
+				return tasks.filter((task: Task) => task.dueTime && task.dueTime <= nowTime);
+			case 'one_day':
+				return tasks.filter((task: Task) => !task.dueTime );
+			default:
+				tasks
+
+
+		}
+		return dueDate === 'today' ? tasks.filter((task: Task) => task.dueTime && task.dueTime > nowTime) : tasks.filter((task: Task) => task.dueTime && task.dueTime <= nowTime);
 	}
 
 	function closeTaskModal() {
@@ -49,10 +63,20 @@ const HomeContainer: React.FC = () => {
 		<>
 			<IonCard mode="ios">
 				<IonList inset={true} lines="inset">
-					<IonListHeader color="warning">
+					<IonListHeader color="success">
 						<IonLabel>{t('Home.today')}</IonLabel>
 					</IonListHeader>
 					{getFilteredTasks("today").map((task: Task) =>
+						<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTack(task)} onSwipeRight={(task: Task) => taskDone(task)} onSwipeLeft={(task: Task) => taskUnDone(task)}></TaskItem>
+					)}
+				</IonList>
+			</IonCard>
+			<IonCard mode="ios">
+				<IonList inset={true} lines="inset">
+					<IonListHeader color="warning">
+						<IonLabel>{t('Home.tomorrow')}</IonLabel>
+					</IonListHeader>
+					{getFilteredTasks("tomorrow").map((task: Task) =>
 						<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTack(task)} onSwipeRight={(task: Task) => taskDone(task)} onSwipeLeft={(task: Task) => taskUnDone(task)}></TaskItem>
 					)}
 				</IonList>
@@ -75,7 +99,6 @@ const HomeContainer: React.FC = () => {
 			{openNewTaskModal && <TaskModal onClose={() => closeTaskModal()} task={selectedTask || {
 				id: "",
 				label: "",
-				dueDate: "today",
 				dueTime: null,
 				complete: false,
 			}} ></TaskModal>}

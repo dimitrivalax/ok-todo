@@ -19,7 +19,7 @@ export async function createNotification(body: string, dueTime: string | null, e
 					title: i18next.t('Notifications.let_s_go'),
 					body,
 					largeIcon: "ic_launcher",
-					smallIcon: "ic_launcher",
+					smallIcon: "notif_icon",
 					id: notificationId,
 					schedule: {
 						allowWhileIdle: true,
@@ -69,7 +69,7 @@ export const createOrUpdateMainNotification = async () => {
 					title: i18next.t('Notifications.what_are_you_going_to_do_today'),
 					body : i18next.t('Notifications.plan_your_day'),
 					largeIcon: "ic_launcher",
-					smallIcon: "ic_launcher",
+					smallIcon: "notif_icon",
 					id: notificationId,
 					schedule: {
 						allowWhileIdle: true,
