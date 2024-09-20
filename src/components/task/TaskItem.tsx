@@ -57,7 +57,7 @@ const TaskItem: FunctionComponent<TaskItemProps> = (props) => {
 
 	return (
 		<IonItem key={props.task.id} ref={item}>
-			<IonLabel className={props.task.complete ? 'text-strikethrough' : ''} onClick={() => props.onSelect(props.task)} ref={label}>{props.task.label} {props.task.dueTime ? `(${props.task.dueTime})` : ""}</IonLabel>
+			<IonLabel className={props.task.complete ? 'text-strikethrough ion-text-capitalize' : 'ion-text-capitalize'} onClick={() => props.onSelect(props.task)} ref={label}>{props.task.label} {props.task.dueTime ? `(${props.task.dueTime})` : ""}</IonLabel>
 			<IonToggle enableOnOffLabels={true} checked={props.task.complete} slot="end" onIonChange={(ev) => onToggle(ev)}></IonToggle>
 		</IonItem>
 	);

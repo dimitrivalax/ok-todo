@@ -49,3 +49,28 @@ export const updateTask= async (task: Task) => {
 		
 	}
 }
+
+export const sortTaskByDueTime = (tasks: Task[]) : Task[] => {
+	let orderedTasks = tasks;
+	return orderedTasks.sort((a:Task, b:Task) => compareTaskByDueDate(a, b))
+}
+
+
+function compareTaskByDueDate( a:Task, b:Task ) {
+	if(a.dueTime === null && b.dueTime === null){
+		return 0
+	}
+	if(a.dueTime !== null && b.dueTime === null){
+		return -1
+	}
+	if(a.dueTime === null && b.dueTime !== null){
+		return 1
+	}
+	if ( a.dueTime! < b.dueTime! ){
+	  return -1;
+	}
+	if ( a.dueTime! > b.dueTime! ){
+	  return 1;
+	}
+	return 0;
+  }

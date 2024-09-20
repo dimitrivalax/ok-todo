@@ -20,7 +20,7 @@ const TaskForm: React.FC<Props> = (props) => {
     <>
       <IonList>
         <IonItem>
-          <IonInput label={t('Home.what')} labelPlacement="floating" onIonChange={ev => props.onChange({...props.task, label: ev.target.value as string})} type='text' value={taskForm.label}></IonInput>
+          <IonInput className='ion-text-capitalize' label={t('Home.what')} labelPlacement="floating" onIonChange={ev => props.onChange({...props.task, label: ev.target.value as string})} type='text' value={taskForm.label}></IonInput>
         </IonItem>
         <IonItem>
           <IonInput label={t('Home.when_hour')} labelPlacement="floating" onIonChange={ev => props.onChange({...props.task, dueTime: ev.target.value as string})} type='time' value={taskForm.dueTime}></IonInput>

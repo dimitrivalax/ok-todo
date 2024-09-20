@@ -3,7 +3,7 @@ import { add } from 'ionicons/icons';
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import TaskModal from "../task/TaskModal";
-import { getTasks, updateTask } from "../../services/task.services";
+import { getTasks, sortTaskByDueTime, updateTask } from "../../services/task.services";
 import TaskItem from "../task/TaskItem";
 import { format } from "date-fns";
 
@@ -14,20 +14,24 @@ const HomeContainer: React.FC = () => {
 	const [tasks, setTasks] = useState<Task[]>([])
 
 	function getFilteredTasks(dueDate: string): Task[] {
-		const nowTime = format(new Date(), "hh:mm")
+		const nowTime = format(new Date(), "HH:mm")
+		let orderedTasks: Task[] = []
 		switch (dueDate) {
 			case 'today':
-				return tasks.filter((task: Task) => task.dueTime && task.dueTime > nowTime);
+				orderedTasks = tasks.filter((task: Task) => task.dueTime && task.dueTime > nowTime);
+				break;
 			case 'tomorrow':
-				return tasks.filter((task: Task) => task.dueTime && task.dueTime <= nowTime);
+				orderedTasks =  tasks.filter((task: Task) => task.dueTime && task.dueTime <= nowTime);
+				break;
 			case 'one_day':
-				return tasks.filter((task: Task) => !task.dueTime );
+				orderedTasks =  tasks.filter((task: Task) => !task.dueTime );
+				break;
 			default:
 				tasks
 
 
 		}
-		return dueDate === 'today' ? tasks.filter((task: Task) => task.dueTime && task.dueTime > nowTime) : tasks.filter((task: Task) => task.dueTime && task.dueTime <= nowTime);
+		return sortTaskByDueTime(orderedTasks)
 	}
 
 	function closeTaskModal() {
