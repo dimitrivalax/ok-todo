@@ -11,11 +11,14 @@
 		"tomorrow": "Tomorrow",
 		"next_week": "Next week",
 		"one_day": "One day",
+		"confirm_delete_title": "Do you really want to delete the task?",
+		"yes": "Yes",
+		"no": "No",
 		"delete": "Delete",
 		"delete_all": "Delete all",
 		"save": "Save",
 		"cancel": "Cancel",
-		"close": "Fermer"
+		"close": "close"
 	},
 	"Settings": {
 	  "title": "Settings",

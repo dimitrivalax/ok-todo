@@ -1,4 +1,4 @@
-import { IonAvatar, IonButton, IonButtons, IonContent, IonFooter, IonHeader, IonIcon, IonImg, IonItem, IonLabel, IonList, IonModal, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonAlert, IonAvatar, IonButton, IonButtons, IonContent, IonFooter, IonHeader, IonIcon, IonImg, IonItem, IonLabel, IonList, IonModal, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import TaskForm from './TaskForm';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
@@ -14,6 +14,7 @@ const TaskModal: React.FC<Props> = (props) => {
   const { t } = useTranslation();
   const [task, setTask] = useState<Task>(props.task)
   const [saveDisabled, setSaveDisabled] = useState(true)
+  const [isDeleteAlertOpen, setIsDeleteAlertOpen] = useState(false)
 
   function onWillDismiss() {
     props.onClose()
@@ -54,12 +55,35 @@ const TaskModal: React.FC<Props> = (props) => {
       <IonContent className="ion-padding">
         <TaskForm onChange={(task: Task) => onFormChange(task)} task={task}></TaskForm>
         {props.task.id &&
-          <IonRow class="ion-justify-content-center ion-margin-top">
-            <IonButton shape="round" color="danger" onClick={() => remove()}>
-              <IonIcon slot="start" icon={trashOutline}></IonIcon>
-              {t('Home.delete')}
-            </IonButton>
-          </IonRow>
+          <>
+            <IonRow class="ion-justify-content-center ion-margin-top">
+              <IonButton shape="round" color="danger" onClick={() => setIsDeleteAlertOpen(true)}>
+                <IonIcon slot="start" icon={trashOutline}></IonIcon>
+                {t('Home.delete')}
+              </IonButton>
+            </IonRow>
+            <IonAlert
+              isOpen={isDeleteAlertOpen}
+              header={t('Home.confirm_delete_title')}
+              buttons={[
+                {
+                  text: t('Home.no'),
+                  role: 'cancel',
+                  handler: () => {
+                    console.log('Alert canceled');
+                  },
+                },
+                {
+                  text: t('Home.yes'),
+                  role: 'confirm',
+                  handler: () => {
+                    remove();
+                  },
+                },
+              ]}
+              onDidDismiss={() => setIsDeleteAlertOpen(false)}
+            ></IonAlert>
+          </>
         }
       </IonContent>
     </IonModal>
