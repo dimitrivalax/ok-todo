@@ -60,32 +60,36 @@ const removeIdFromNotificationIds = (notificationId: number) => {
 
 
 export const createOrUpdateMainNotification = async () => {
-	if ((await LocalNotifications.requestPermissions()).display === 'granted') {
-		const notificationTime = settingsServices.getNotificationTimeHourAndMinute()
-		const notificationId = 42;
-		await LocalNotifications.schedule({
-			notifications: [
-				{
-					title: i18next.t('Notifications.what_are_you_going_to_do_today'),
-					body : i18next.t('Notifications.plan_your_day'),
-					largeIcon: "ic_launcher",
-					smallIcon: "notif_icon",
-					id: notificationId,
-					schedule: {
-						allowWhileIdle: true,
-						on: {
-							hour: notificationTime[0],
-							minute: notificationTime[1],
+	try {
+		if ((await LocalNotifications.requestPermissions()).display === 'granted') {
+			const notificationTime = settingsServices.getNotificationTimeHourAndMinute()
+			const notificationId = 42;
+			await LocalNotifications.schedule({
+				notifications: [
+					{
+						title: i18next.t('Notifications.what_are_you_going_to_do_today'),
+						body : i18next.t('Notifications.plan_your_day'),
+						largeIcon: "ic_launcher",
+						smallIcon: "notif_icon",
+						id: notificationId,
+						schedule: {
+							allowWhileIdle: true,
+							on: {
+								hour: notificationTime[0],
+								minute: notificationTime[1],
+							},
 						},
 					},
-				},
-			]
-		});
-		const notificationIdsString = localStorage.getItem('notificationIds');
-		const notificationIds = notificationIdsString ? JSON.parse(notificationIdsString) as Array<number> : []
-		if (!notificationIds.includes(notificationId)) {
-			notificationIds.push(notificationId)
-			localStorage.setItem('notificationIds', JSON.stringify(notificationIds))
+				]
+			});
+			const notificationIdsString = localStorage.getItem('notificationIds');
+			const notificationIds = notificationIdsString ? JSON.parse(notificationIdsString) as Array<number> : []
+			if (!notificationIds.includes(notificationId)) {
+				notificationIds.push(notificationId)
+				localStorage.setItem('notificationIds', JSON.stringify(notificationIds))
+			}
 		}
+	} catch (error) {
+		console.warn('Local notifications unavailable:', error)
 	}
 }

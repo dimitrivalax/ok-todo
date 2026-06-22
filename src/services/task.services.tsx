@@ -51,7 +51,7 @@ export const updateTask= async (task: Task) => {
 }
 
 export const sortTaskByDueTime = (tasks: Task[]) : Task[] => {
-	let orderedTasks = tasks;
+	const orderedTasks = tasks;
 	return orderedTasks.sort((a:Task, b:Task) => compareTaskByDueDate(a, b))
 }
 
