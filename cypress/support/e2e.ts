@@ -18,3 +18,18 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+// The Capacitor LocalNotifications plugin is unavailable when the app runs in a
+// desktop browser (as it does under Cypress). Those runtime errors are expected
+// and unrelated to the UI behavior we test here, so we swallow them.
+Cypress.on('uncaught:exception', (err) => {
+  const message = err?.message ?? ''
+  const code = (err as { code?: string })?.code ?? ''
+  if (
+    code === 'UNAVAILABLE' ||
+    /not supported|not implemented|notifications/i.test(message)
+  ) {
+    return false
+  }
+  return undefined
+})
