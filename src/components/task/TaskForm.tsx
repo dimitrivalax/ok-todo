@@ -16,14 +16,20 @@ const TaskForm: React.FC<Props> = (props) => {
 		setTaskForm(props.task)
 	}, [props.task]);
 
+  function update(changes: Partial<Task>) {
+    const next = { ...taskForm, ...changes }
+    setTaskForm(next)
+    props.onChange(next)
+  }
+
   return (
     <>
       <IonList>
         <IonItem>
-          <IonInput className='ion-text-capitalize' label={t('Home.what')} labelPlacement="floating" onIonInput={ev => props.onChange({...props.task, label: ev.target.value as string})} type='text' value={taskForm.label}></IonInput>
+          <IonInput className='ion-text-capitalize' label={t('Home.what')} labelPlacement="floating" onIonInput={ev => update({ label: ev.target.value as string })} type='text' value={taskForm.label}></IonInput>
         </IonItem>
         <IonItem>
-          <IonInput label={t('Home.when_hour')} labelPlacement="floating" onIonChange={ev => props.onChange({...props.task, dueTime: ev.target.value as string})} type='time' value={taskForm.dueTime}></IonInput>
+          <IonInput label={t('Home.when_hour')} labelPlacement="floating" onIonChange={ev => update({ dueTime: ev.target.value as string })} type='time' value={taskForm.dueTime}></IonInput>
         </IonItem>
       </IonList>
     </>
