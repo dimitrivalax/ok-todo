@@ -35,7 +35,7 @@ describe('Task management', () => {
 
     cy.get('ion-fab-button').click()
     cy.contains('ion-title', 'Nouvelle tache').should('be.visible')
-    cy.get('input[type="text"]').type(label).should('have.value', label)
+    cy.get('input[type="text"]').type(label, { delay: 60 }).should('have.value', label)
     cy.contains('ion-button', 'Sauver').click()
 
     cy.contains('ion-item', label).should('be.visible')
@@ -62,7 +62,7 @@ describe('Task management', () => {
 
     cy.contains('ion-label', 'tache initiale').click()
     cy.contains('ion-title', 'Modifier').should('be.visible')
-    cy.get('input[type="text"]').clear().type('tache modifiee').should('have.value', 'tache modifiee')
+    cy.get('input[type="text"]').clear().type('tache modifiee', { delay: 60 }).should('have.value', 'tache modifiee')
     cy.contains('ion-button', 'Sauver').click()
 
     cy.contains('ion-item', 'tache modifiee').should('be.visible')

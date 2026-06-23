@@ -53,7 +53,7 @@ const TaskModal: React.FC<Props> = (props) => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <TaskForm onChange={(task: Task) => onFormChange(task)} task={task}></TaskForm>
+        <TaskForm onChange={(task: Task) => onFormChange(task)} task={props.task}></TaskForm>
         {props.task.id &&
           <>
             <IonRow class="ion-justify-content-center ion-margin-top">
