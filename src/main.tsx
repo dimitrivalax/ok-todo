@@ -12,7 +12,7 @@ import i18next from './translations/i18n';
     console.log('NOTIF RECEVEID ::: ', JSON.stringify(notification))
   })
 
-  LocalNotifications.addListener('localNotificationActionPerformed',(notification : ActionPerformed) => {
+  LocalNotifications.addListener('localNotificationActionPerformed',(_notification : ActionPerformed) => {
     LocalNotifications.removeAllDeliveredNotifications();
   })
 

@@ -1,6 +1,5 @@
 import { IonToggleCustomEvent } from "@ionic/core";
-import { createGesture, GestureDetail, IonIcon, IonItem, IonItemOption, IonItemOptions, IonItemSliding, IonLabel, IonToggle, ToggleChangeEventDetail } from "@ionic/react";
-import { checkmark } from "ionicons/icons";
+import { createGesture, GestureDetail, IonItem, IonLabel, IonToggle, ToggleChangeEventDetail } from "@ionic/react";
 import { FunctionComponent, useEffect, useRef } from "react";
 
 interface TaskItemProps {
@@ -30,7 +29,7 @@ const TaskItem: FunctionComponent<TaskItemProps> = (props) => {
 		}
 	};
 
-	function onToggle(ev: IonToggleCustomEvent<ToggleChangeEventDetail<any>>) {
+	function onToggle(ev: IonToggleCustomEvent<ToggleChangeEventDetail>) {
 		if (ev.target.checked) {
 			label.current?.classList.add('text-strikethrough');
 			props.onSwipeRight(props.task)
@@ -64,7 +63,3 @@ const TaskItem: FunctionComponent<TaskItemProps> = (props) => {
 }
 
 export default TaskItem;
-
-function getNewTransform(): any {
-	throw new Error("Function not implemented.");
-}

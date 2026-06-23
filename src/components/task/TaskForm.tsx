@@ -1,4 +1,4 @@
-import { IonDatetime, IonInput, IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/react';
+import { IonInput, IonItem, IonList } from '@ionic/react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 

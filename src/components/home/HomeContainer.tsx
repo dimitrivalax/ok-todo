@@ -1,4 +1,4 @@
-import { IonCard, IonFab, IonFabButton, IonIcon, IonItem, IonItemOption, IonItemOptions, IonItemSliding, IonLabel, IonList, IonListHeader } from "@ionic/react";
+import { IonCard, IonFab, IonFabButton, IonIcon, IonLabel, IonList, IonListHeader } from "@ionic/react";
 import { add } from 'ionicons/icons';
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -27,9 +27,7 @@ const HomeContainer: React.FC = () => {
 				orderedTasks =  tasks.filter((task: Task) => !task.dueTime );
 				break;
 			default:
-				tasks
-
-
+				break;
 		}
 		return sortTaskByDueTime(orderedTasks)
 	}

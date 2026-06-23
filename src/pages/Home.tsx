@@ -1,5 +1,4 @@
-import { IonCard, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useTranslation } from 'react-i18next';
 import HomeContainer from '../components/home/HomeContainer';
 

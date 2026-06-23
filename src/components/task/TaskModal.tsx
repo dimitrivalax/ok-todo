@@ -1,7 +1,7 @@
-import { IonAlert, IonAvatar, IonButton, IonButtons, IonContent, IonFooter, IonHeader, IonIcon, IonImg, IonItem, IonLabel, IonList, IonModal, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonAlert, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonModal, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import TaskForm from './TaskForm';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { removeTask, saveNewtTask, updateTask } from '../../services/task.services';
 import { trashOutline } from 'ionicons/icons';
 

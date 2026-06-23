@@ -32,6 +32,9 @@ importers:
       '@capacitor/status-bar':
         specifier: ^8.0.2
         version: 8.0.2(@capacitor/core@8.4.1)
+      '@ionic/core':
+        specifier: ^8.8.11
+        version: 8.8.11
       '@ionic/react':
         specifier: ^8.8.11
         version: 8.8.11(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
