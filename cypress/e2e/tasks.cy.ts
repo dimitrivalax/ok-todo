@@ -50,7 +50,7 @@ describe('Task management', () => {
 
   it('does not save a task with an empty label', () => {
     cy.get('ion-fab-button').click()
-    cy.contains('ion-button', 'Sauver').should('be.disabled')
+    cy.contains('ion-button', 'Sauver').should('have.class', 'button-disabled')
     cy.contains('ion-button', 'Annuler').click()
     cy.window().then((win) => {
       expect(readTasks(win)).to.have.length(0)
