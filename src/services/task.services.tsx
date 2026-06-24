@@ -36,18 +36,18 @@ export const updateTask= async (task: Task) => {
 	const tasksString = localStorage.getItem('tasks');
 	const tasks = tasksString ? JSON.parse(tasksString) as Array<Task> : []
 	const newTasks = tasks.filter(t => t.id !== task.id)
-	newTasks.push(task)
-	localStorage.setItem('tasks', JSON.stringify(newTasks))
 	if (task.complete){
 		notificationService.cancelNotification(task.notificationId!)
 	} else {
 		if (task.dueTime){
-			await notificationService.createNotification(task.label, task.dueTime, task.notificationId)
+			task.notificationId = await notificationService.createNotification(task.label, task.dueTime, task.notificationId)
 		} else {
 			notificationService.cancelNotification(task.notificationId!)
 		}
 		
 	}
+	newTasks.push(task)
+	localStorage.setItem('tasks', JSON.stringify(newTasks))
 }
 
 export const sortTaskByDueTime = (tasks: Task[]) : Task[] => {
