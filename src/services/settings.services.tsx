@@ -1,11 +1,14 @@
+import { readJson, writeJson } from './storage.services'
+import type { Settings } from '../global/types'
+
+const SETTINGS_KEY = 'settings';
 
 export const getSettings = (): Settings | null => {
-	const settingsString = localStorage.getItem('settings');
-	return settingsString ? JSON.parse(settingsString) as Settings : null;
+	return readJson<Settings | null>(SETTINGS_KEY, null);
 }
 
 export const saveSettings = (settings: Settings) => {
-	localStorage.setItem('settings', JSON.stringify(settings));
+	writeJson(SETTINGS_KEY, settings);
 }
 
 // return an array of number [defaultHour, defaultMinute]

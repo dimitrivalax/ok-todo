@@ -1,6 +1,7 @@
 import { IonInput, IonItem, IonList } from '@ionic/react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import type { Task } from '../../global/types';
 
 interface Props {
   task: Task

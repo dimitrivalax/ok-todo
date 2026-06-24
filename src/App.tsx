@@ -47,7 +47,7 @@ import Home from './pages/Home';
 import { useTranslation } from 'react-i18next';
 import Settings from './pages/Settings';
 import { useEffect } from 'react';
-import { createOrUpdateMainNotification } from './services/notifcation.services';
+import { createOrUpdateMainNotification } from './services/notification.services';
 
 setupIonicReact();
 

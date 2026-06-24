@@ -2,8 +2,9 @@ import { IonAlert, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonMod
 import TaskForm from './TaskForm';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
-import { removeTask, saveNewtTask, updateTask } from '../../services/task.services';
+import { removeTask, saveNewTask, updateTask } from '../../services/task.services';
 import { trashOutline } from 'ionicons/icons';
+import type { Task } from '../../global/types';
 
 interface Props {
   task: Task;
@@ -29,7 +30,7 @@ const TaskModal: React.FC<Props> = (props) => {
     if (task.id) {
       await updateTask(task)
     } else {
-      await saveNewtTask(task)
+      await saveNewTask(task)
     }
 
     props.onClose()
@@ -69,9 +70,6 @@ const TaskModal: React.FC<Props> = (props) => {
                 {
                   text: t('Home.no'),
                   role: 'cancel',
-                  handler: () => {
-                    console.log('Alert canceled');
-                  },
                 },
                 {
                   text: t('Home.yes'),

@@ -1,11 +1,12 @@
 import { IonCard, IonFab, IonFabButton, IonIcon, IonLabel, IonList, IonListHeader } from "@ionic/react";
 import { add } from 'ionicons/icons';
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import TaskModal from "../task/TaskModal";
 import { getTasks, sortTaskByDueTime, updateTask } from "../../services/task.services";
 import TaskItem from "../task/TaskItem";
 import { format } from "date-fns";
+import type { Task } from "../../global/types";
 
 const HomeContainer: React.FC = () => {
 	const { t } = useTranslation();
@@ -21,10 +22,10 @@ const HomeContainer: React.FC = () => {
 				orderedTasks = tasks.filter((task: Task) => task.dueTime && task.dueTime > nowTime);
 				break;
 			case 'tomorrow':
-				orderedTasks =  tasks.filter((task: Task) => task.dueTime && task.dueTime <= nowTime);
+				orderedTasks = tasks.filter((task: Task) => task.dueTime && task.dueTime <= nowTime);
 				break;
 			case 'one_day':
-				orderedTasks =  tasks.filter((task: Task) => !task.dueTime );
+				orderedTasks = tasks.filter((task: Task) => !task.dueTime);
 				break;
 			default:
 				break;
@@ -32,13 +33,17 @@ const HomeContainer: React.FC = () => {
 		return sortTaskByDueTime(orderedTasks)
 	}
 
+	const todayTasks = useMemo(() => getFilteredTasks("today"), [tasks])
+	const tomorrowTasks = useMemo(() => getFilteredTasks("tomorrow"), [tasks])
+	const oneDayTasks = useMemo(() => getFilteredTasks("one_day"), [tasks])
+
 	function closeTaskModal() {
 		setSelectedTask(undefined)
 		setTasks(getTasks())
 		setOpenNewTaskModal(false)
 	}
 
-	function onSelectTack(task: Task) {
+	function onSelectTask(task: Task) {
 		setSelectedTask(task)
 		setOpenNewTaskModal(true)
 	}
@@ -68,8 +73,8 @@ const HomeContainer: React.FC = () => {
 					<IonListHeader color="success">
 						<IonLabel>{t('Home.today')}</IonLabel>
 					</IonListHeader>
-					{getFilteredTasks("today").map((task: Task) =>
-						<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTack(task)} onSwipeRight={(task: Task) => taskDone(task)} onSwipeLeft={(task: Task) => taskUnDone(task)}></TaskItem>
+					{todayTasks.map((task: Task) =>
+						<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTask(task)} onSwipeRight={(task: Task) => taskDone(task)} onSwipeLeft={(task: Task) => taskUnDone(task)}></TaskItem>
 					)}
 				</IonList>
 			</IonCard>
@@ -78,8 +83,8 @@ const HomeContainer: React.FC = () => {
 					<IonListHeader color="warning">
 						<IonLabel>{t('Home.tomorrow')}</IonLabel>
 					</IonListHeader>
-					{getFilteredTasks("tomorrow").map((task: Task) =>
-						<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTack(task)} onSwipeRight={(task: Task) => taskDone(task)} onSwipeLeft={(task: Task) => taskUnDone(task)}></TaskItem>
+					{tomorrowTasks.map((task: Task) =>
+						<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTask(task)} onSwipeRight={(task: Task) => taskDone(task)} onSwipeLeft={(task: Task) => taskUnDone(task)}></TaskItem>
 					)}
 				</IonList>
 			</IonCard>
@@ -88,8 +93,8 @@ const HomeContainer: React.FC = () => {
 					<IonListHeader color="danger">
 						<IonLabel>{t('Home.one_day')}</IonLabel>
 					</IonListHeader>
-					{getFilteredTasks("one_day").map((task: Task) =>
-						<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTack(task)} onSwipeRight={(task: Task) => taskDone(task)} onSwipeLeft={(task: Task) => taskUnDone(task)}></TaskItem>
+					{oneDayTasks.map((task: Task) =>
+						<TaskItem key={task.id} task={task} onSelect={(task: Task) => onSelectTask(task)} onSwipeRight={(task: Task) => taskDone(task)} onSwipeLeft={(task: Task) => taskUnDone(task)}></TaskItem>
 					)}
 				</IonList>
 			</IonCard>

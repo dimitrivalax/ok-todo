@@ -1,76 +1,77 @@
 import { v4 as uuidv4 } from 'uuid';
-import * as notificationService from './notifcation.services'
+import * as notificationService from './notification.services'
+import { readJson, writeJson } from './storage.services'
+import type { Task } from '../global/types'
 
-export const getTasks = () : Task[] => {
-	const tasksString = localStorage.getItem('tasks');
-	const tasks = tasksString ? JSON.parse(tasksString) as Array<Task> : []
-	return tasks
+const TASKS_KEY = 'tasks';
+
+export const getTasks = (): Task[] => {
+	return readJson<Task[]>(TASKS_KEY, [])
 }
 
 
-export const saveNewtTask = async (task: Task) => {
+export const saveNewTask = async (task: Task) => {
 	if (!task.id) {
 		task.id = uuidv4();
 	}
-	const tasksString = localStorage.getItem('tasks');
-	const tasks = tasksString ? JSON.parse(tasksString) as Array<Task> : []
-	
-	if (task.dueTime){
+	const tasks = getTasks()
+
+	if (task.dueTime) {
 		task.notificationId = await notificationService.createNotification(task.label, task.dueTime);
 	}
-	
+
 	tasks.push(task)
-	localStorage.setItem('tasks', JSON.stringify(tasks))
+	writeJson(TASKS_KEY, tasks)
 }
 
 
 export const removeTask = (task: Task) => {
-	const tasksString = localStorage.getItem('tasks');
-	const tasks = tasksString ? JSON.parse(tasksString) as Array<Task> : []
+	const tasks = getTasks()
 	const newTasks = tasks.filter(t => t.id !== task.id)
-	localStorage.setItem('tasks', JSON.stringify(newTasks))
-	notificationService.cancelNotification(task.notificationId!)
+	writeJson(TASKS_KEY, newTasks)
+	if (task.notificationId != null) {
+		notificationService.cancelNotification(task.notificationId)
+	}
 }
 
-export const updateTask= async (task: Task) => {
-	const tasksString = localStorage.getItem('tasks');
-	const tasks = tasksString ? JSON.parse(tasksString) as Array<Task> : []
+export const updateTask = async (task: Task) => {
+	const tasks = getTasks()
 	const newTasks = tasks.filter(t => t.id !== task.id)
-	if (task.complete){
-		notificationService.cancelNotification(task.notificationId!)
-	} else {
-		if (task.dueTime){
-			task.notificationId = await notificationService.createNotification(task.label, task.dueTime, task.notificationId)
-		} else {
-			notificationService.cancelNotification(task.notificationId!)
+	if (task.complete) {
+		if (task.notificationId != null) {
+			notificationService.cancelNotification(task.notificationId)
 		}
-		
+	} else {
+		if (task.dueTime) {
+			task.notificationId = await notificationService.createNotification(task.label, task.dueTime, task.notificationId)
+		} else if (task.notificationId != null) {
+			notificationService.cancelNotification(task.notificationId)
+		}
 	}
 	newTasks.push(task)
-	localStorage.setItem('tasks', JSON.stringify(newTasks))
+	writeJson(TASKS_KEY, newTasks)
 }
 
-export const sortTaskByDueTime = (tasks: Task[]) : Task[] => {
-	const orderedTasks = tasks;
-	return orderedTasks.sort((a:Task, b:Task) => compareTaskByDueDate(a, b))
+export const sortTaskByDueTime = (tasks: Task[]): Task[] => {
+	return [...tasks].sort((a: Task, b: Task) => compareTaskByDueDate(a, b))
 }
 
 
-function compareTaskByDueDate( a:Task, b:Task ) {
-	if(a.dueTime === null && b.dueTime === null){
+function compareTaskByDueDate(a: Task, b: Task) {
+	if (a.dueTime === null && b.dueTime === null) {
 		return 0
 	}
-	if(a.dueTime !== null && b.dueTime === null){
+	if (a.dueTime !== null && b.dueTime === null) {
 		return -1
 	}
-	if(a.dueTime === null && b.dueTime !== null){
+	if (a.dueTime === null && b.dueTime !== null) {
 		return 1
 	}
-	if ( a.dueTime! < b.dueTime! ){
-	  return -1;
+	if (a.dueTime! < b.dueTime!) {
+		return -1;
 	}
-	if ( a.dueTime! > b.dueTime! ){
-	  return 1;
+	if (a.dueTime! > b.dueTime!) {
+		return 1;
 	}
 	return 0;
-  }
+}

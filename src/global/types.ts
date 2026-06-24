@@ -1,15 +1,11 @@
-export {};
+export type Task = {
+	id: string;
+	label: string;
+	dueTime: string | null;
+	complete: boolean;
+	notificationId?: number;
+};
 
-declare global {
-	type Task = {
-		id: string;
-		label: string;
-		dueTime: string | null;
-		complete: boolean;
-		notificationId?: number;
-	};
-
-	type Settings = {
-		notificationTime: string;
-	};
-}
+export type Settings = {
+	notificationTime: string;
+};

@@ -2,6 +2,7 @@ import { IonCard, IonInput, IonItem, IonLabel, IonList, IonListHeader } from "@i
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import * as settingsServices from "../../services/settings.services";
+import type { Settings } from "../../global/types";
 
 const SettingsContainer: React.FC = () => {
 	const { t } = useTranslation();

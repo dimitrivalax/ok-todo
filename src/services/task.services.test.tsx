@@ -1,12 +1,13 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
+import type { Task } from '../global/types'
 
-vi.mock('./notifcation.services', () => ({
+vi.mock('./notification.services', () => ({
 	createNotification: vi.fn(),
 	cancelNotification: vi.fn(),
 }))
 
-import * as notificationService from './notifcation.services'
-import { getTasks, saveNewtTask, updateTask } from './task.services'
+import * as notificationService from './notification.services'
+import { getTasks, removeTask, saveNewTask, sortTaskByDueTime, updateTask } from './task.services'
 
 const createNotificationMock = vi.mocked(notificationService.createNotification)
 const cancelNotificationMock = vi.mocked(notificationService.cancelNotification)
@@ -60,15 +61,69 @@ describe('updateTask', () => {
 	})
 })
 
-describe('saveNewtTask', () => {
+describe('saveNewTask', () => {
 	it('stores the notificationId for a task created with a due time', async () => {
 		createNotificationMock.mockResolvedValue(42)
 
-		await saveNewtTask({ id: '', label: 'faire les courses', dueTime: '18:00', complete: false })
+		await saveNewTask({ id: '', label: 'faire les courses', dueTime: '18:00', complete: false })
 
 		const stored = getTasks()
 		expect(stored).toHaveLength(1)
 		expect(stored[0].notificationId).toBe(42)
 		expect(stored[0].id).not.toBe('')
+	})
+
+	it('does not schedule a notification for a task without a due time', async () => {
+		await saveNewTask({ id: '', label: 'ranger le garage', dueTime: null, complete: false })
+
+		expect(createNotificationMock).not.toHaveBeenCalled()
+		expect(getTasks()[0].notificationId).toBeUndefined()
+	})
+})
+
+describe('removeTask', () => {
+	it('removes the task and cancels its notification', () => {
+		const task: Task = { id: 't1', label: 'payer le loyer', dueTime: '10:00', complete: false, notificationId: 321 }
+		localStorage.setItem('tasks', JSON.stringify([task]))
+
+		removeTask(task)
+
+		expect(getTasks()).toHaveLength(0)
+		expect(cancelNotificationMock).toHaveBeenCalledWith(321)
+	})
+
+	it('does not call cancel when the task has no notificationId', () => {
+		const task: Task = { id: 't1', label: 'lire un livre', dueTime: null, complete: false }
+		localStorage.setItem('tasks', JSON.stringify([task]))
+
+		removeTask(task)
+
+		expect(cancelNotificationMock).not.toHaveBeenCalled()
+	})
+})
+
+describe('sortTaskByDueTime', () => {
+	it('orders tasks by due time and pushes tasks without a due time to the end', () => {
+		const tasks: Task[] = [
+			{ id: 'a', label: 'a', dueTime: null, complete: false },
+			{ id: 'b', label: 'b', dueTime: '09:00', complete: false },
+			{ id: 'c', label: 'c', dueTime: '07:30', complete: false },
+		]
+
+		const sorted = sortTaskByDueTime(tasks)
+
+		expect(sorted.map(t => t.id)).toEqual(['c', 'b', 'a'])
+	})
+
+	it('does not mutate the input array', () => {
+		const tasks: Task[] = [
+			{ id: 'b', label: 'b', dueTime: '09:00', complete: false },
+			{ id: 'c', label: 'c', dueTime: '07:30', complete: false },
+		]
+		const original = [...tasks]
+
+		sortTaskByDueTime(tasks)
+
+		expect(tasks).toEqual(original)
 	})
 })
