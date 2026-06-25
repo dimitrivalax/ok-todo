@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Pradžia",
+		"today": "Šiandien",
+		"task": "Užduotis",
+		"new_task": "Nauja užduotis",
+		"update_task": "Redaguoti užduotį",
+		"what": "Ką?",
+		"when": "Kada?",
+		"when_hour": "Kelintą valandą?",
+		"tomorrow": "Rytoj",
+		"next_week": "Kitą savaitę",
+		"one_day": "Kada nors",
+		"confirm_delete_title": "Ar tikrai nori ištrinti užduotį?",
+		"yes": "Taip",
+		"no": "Ne",
+		"delete": "Ištrinti",
+		"delete_all": "Ištrinti viską",
+		"save": "Išsaugoti",
+		"cancel": "Atšaukti",
+		"close": "Uždaryti"
+	},
+	"Settings": {
+		"title": "Nustatymai",
+		"time_notifications_label": "Kelintą valandą pranešimai?",
+		"notifications": "Pranešimai"
+	},
+	"Notifications": {
+		"let_s_go": "Pirmyn!",
+		"what_are_you_going_to_do_today": "Ką šiandien veiksi?",
+		"plan_your_day": "Suplanuok savo dieną..."
+	}
+}

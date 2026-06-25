@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Hjem",
+		"today": "I dag",
+		"task": "Opgave",
+		"new_task": "Ny opgave",
+		"update_task": "Rediger opgave",
+		"what": "Hvad?",
+		"when": "Hvornår?",
+		"when_hour": "Hvilket klokkeslæt?",
+		"tomorrow": "I morgen",
+		"next_week": "Næste uge",
+		"one_day": "En dag",
+		"confirm_delete_title": "Vil du virkelig slette opgaven?",
+		"yes": "Ja",
+		"no": "Nej",
+		"delete": "Slet",
+		"delete_all": "Slet alt",
+		"save": "Gem",
+		"cancel": "Annuller",
+		"close": "Luk"
+	},
+	"Settings": {
+		"title": "Indstillinger",
+		"time_notifications_label": "Hvornår skal notifikationerne komme?",
+		"notifications": "Notifikationer"
+	},
+	"Notifications": {
+		"let_s_go": "Kom så!",
+		"what_are_you_going_to_do_today": "Hvad skal du lave i dag?",
+		"plan_your_day": "Planlæg din dag..."
+	}
+}

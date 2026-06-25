@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Начало",
+		"today": "Днес",
+		"task": "Задача",
+		"new_task": "Нова задача",
+		"update_task": "Редактиране на задача",
+		"what": "Какво?",
+		"when": "Кога?",
+		"when_hour": "В колко часа?",
+		"tomorrow": "Утре",
+		"next_week": "Следващата седмица",
+		"one_day": "Някой ден",
+		"confirm_delete_title": "Наистина ли искаш да изтриеш задачата?",
+		"yes": "Да",
+		"no": "Не",
+		"delete": "Изтриване",
+		"delete_all": "Изтриване на всички",
+		"save": "Запазване",
+		"cancel": "Отказ",
+		"close": "Затваряне"
+	},
+	"Settings": {
+		"title": "Настройки",
+		"time_notifications_label": "В колко часа известията?",
+		"notifications": "Известия"
+	},
+	"Notifications": {
+		"let_s_go": "Да започваме!",
+		"what_are_you_going_to_do_today": "Какво ще правиш днес?",
+		"plan_your_day": "Планирай деня си..."
+	}
+}

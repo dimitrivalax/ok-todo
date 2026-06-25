@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Paġna ewlenija",
+		"today": "Illum",
+		"task": "Kompitu",
+		"new_task": "Kompitu ġdid",
+		"update_task": "Editja l-kompitu",
+		"what": "Xiex?",
+		"when": "Meta?",
+		"when_hour": "F'liema ħin?",
+		"tomorrow": "Għada",
+		"next_week": "Il-ġimgħa d-dieħla",
+		"one_day": "Xi darba",
+		"confirm_delete_title": "Tassew trid tħassar il-kompitu?",
+		"yes": "Iva",
+		"no": "Le",
+		"delete": "Ħassar",
+		"delete_all": "Ħassar kollox",
+		"save": "Issejvja",
+		"cancel": "Ikkanċella",
+		"close": "Agħlaq"
+	},
+	"Settings": {
+		"title": "Issettjar",
+		"time_notifications_label": "F'liema ħin in-notifiki?",
+		"notifications": "Notifiki"
+	},
+	"Notifications": {
+		"let_s_go": "Mela ejja!",
+		"what_are_you_going_to_do_today": "X'se tagħmel illum?",
+		"plan_your_day": "Ippjana l-ġurnata tiegħek..."
+	}
+}

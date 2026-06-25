@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Kezdőlap",
+		"today": "Ma",
+		"task": "Feladat",
+		"new_task": "Új feladat",
+		"update_task": "Feladat szerkesztése",
+		"what": "Mit?",
+		"when": "Mikor?",
+		"when_hour": "Hány órakor?",
+		"tomorrow": "Holnap",
+		"next_week": "Jövő héten",
+		"one_day": "Egyszer",
+		"confirm_delete_title": "Biztosan törlöd a feladatot?",
+		"yes": "Igen",
+		"no": "Nem",
+		"delete": "Törlés",
+		"delete_all": "Összes törlése",
+		"save": "Mentés",
+		"cancel": "Mégse",
+		"close": "Bezárás"
+	},
+	"Settings": {
+		"title": "Beállítások",
+		"time_notifications_label": "Hány órakor az értesítések?",
+		"notifications": "Értesítések"
+	},
+	"Notifications": {
+		"let_s_go": "Gyerünk!",
+		"what_are_you_going_to_do_today": "Mit fogsz ma csinálni?",
+		"plan_your_day": "Tervezd meg a napod..."
+	}
+}

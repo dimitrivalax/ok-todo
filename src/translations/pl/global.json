@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Strona główna",
+		"today": "Dziś",
+		"task": "Zadanie",
+		"new_task": "Nowe zadanie",
+		"update_task": "Edytuj zadanie",
+		"what": "Co?",
+		"when": "Kiedy?",
+		"when_hour": "O której godzinie?",
+		"tomorrow": "Jutro",
+		"next_week": "W przyszłym tygodniu",
+		"one_day": "Kiedyś",
+		"confirm_delete_title": "Czy na pewno chcesz usunąć zadanie?",
+		"yes": "Tak",
+		"no": "Nie",
+		"delete": "Usuń",
+		"delete_all": "Usuń wszystko",
+		"save": "Zapisz",
+		"cancel": "Anuluj",
+		"close": "Zamknij"
+	},
+	"Settings": {
+		"title": "Ustawienia",
+		"time_notifications_label": "O której godzinie powiadomienia?",
+		"notifications": "Powiadomienia"
+	},
+	"Notifications": {
+		"let_s_go": "Zaczynamy!",
+		"what_are_you_going_to_do_today": "Co dziś zrobisz?",
+		"plan_your_day": "Zaplanuj swój dzień..."
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Acasă",
+		"today": "Astăzi",
+		"task": "Sarcină",
+		"new_task": "Sarcină nouă",
+		"update_task": "Editează sarcina",
+		"what": "Ce?",
+		"when": "Când?",
+		"when_hour": "La ce oră?",
+		"tomorrow": "Mâine",
+		"next_week": "Săptămâna viitoare",
+		"one_day": "Într-o zi",
+		"confirm_delete_title": "Sigur vrei să ștergi sarcina?",
+		"yes": "Da",
+		"no": "Nu",
+		"delete": "Șterge",
+		"delete_all": "Șterge tot",
+		"save": "Salvează",
+		"cancel": "Anulează",
+		"close": "Închide"
+	},
+	"Settings": {
+		"title": "Setări",
+		"time_notifications_label": "La ce oră notificările?",
+		"notifications": "Notificări"
+	},
+	"Notifications": {
+		"let_s_go": "Hai să începem!",
+		"what_are_you_going_to_do_today": "Ce vei face astăzi?",
+		"plan_your_day": "Planifică-ți ziua..."
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Početna",
+		"today": "Danas",
+		"task": "Zadatak",
+		"new_task": "Novi zadatak",
+		"update_task": "Uredi zadatak",
+		"what": "Što?",
+		"when": "Kada?",
+		"when_hour": "U koliko sati?",
+		"tomorrow": "Sutra",
+		"next_week": "Sljedeći tjedan",
+		"one_day": "Jednog dana",
+		"confirm_delete_title": "Želiš li stvarno izbrisati zadatak?",
+		"yes": "Da",
+		"no": "Ne",
+		"delete": "Izbriši",
+		"delete_all": "Izbriši sve",
+		"save": "Spremi",
+		"cancel": "Odustani",
+		"close": "Zatvori"
+	},
+	"Settings": {
+		"title": "Postavke",
+		"time_notifications_label": "U koliko sati obavijesti?",
+		"notifications": "Obavijesti"
+	},
+	"Notifications": {
+		"let_s_go": "Idemo!",
+		"what_are_you_going_to_do_today": "Što ćeš danas raditi?",
+		"plan_your_day": "Isplaniraj svoj dan..."
+	}
+}

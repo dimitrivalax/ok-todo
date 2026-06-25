@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Start",
+		"today": "Vandaag",
+		"task": "Taak",
+		"new_task": "Nieuwe taak",
+		"update_task": "Taak bewerken",
+		"what": "Wat?",
+		"when": "Wanneer?",
+		"when_hour": "Hoe laat?",
+		"tomorrow": "Morgen",
+		"next_week": "Volgende week",
+		"one_day": "Ooit",
+		"confirm_delete_title": "Wil je de taak echt verwijderen?",
+		"yes": "Ja",
+		"no": "Nee",
+		"delete": "Verwijderen",
+		"delete_all": "Alles verwijderen",
+		"save": "Opslaan",
+		"cancel": "Annuleren",
+		"close": "Sluiten"
+	},
+	"Settings": {
+		"title": "Instellingen",
+		"time_notifications_label": "Hoe laat de meldingen?",
+		"notifications": "Meldingen"
+	},
+	"Notifications": {
+		"let_s_go": "Kom op!",
+		"what_are_you_going_to_do_today": "Wat ga je vandaag doen?",
+		"plan_your_day": "Plan je dag..."
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Baile",
+		"today": "Inniu",
+		"task": "Tasc",
+		"new_task": "Tasc nua",
+		"update_task": "Cuir tasc in eagar",
+		"what": "Cad é?",
+		"when": "Cathain?",
+		"when_hour": "Cén t-am?",
+		"tomorrow": "Amárach",
+		"next_week": "An tseachtain seo chugainn",
+		"one_day": "Lá éigin",
+		"confirm_delete_title": "An bhfuil tú cinnte gur mhaith leat an tasc a scriosadh?",
+		"yes": "Tá",
+		"no": "Níl",
+		"delete": "Scrios",
+		"delete_all": "Scrios gach rud",
+		"save": "Sábháil",
+		"cancel": "Cealaigh",
+		"close": "Dún"
+	},
+	"Settings": {
+		"title": "Socruithe",
+		"time_notifications_label": "Cén t-am na fógraí?",
+		"notifications": "Fógraí"
+	},
+	"Notifications": {
+		"let_s_go": "Ar aghaidh linn!",
+		"what_are_you_going_to_do_today": "Cad a dhéanfaidh tú inniu?",
+		"plan_your_day": "Pleanáil do lá..."
+	}
+}

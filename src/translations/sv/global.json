@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Hem",
+		"today": "Idag",
+		"task": "Uppgift",
+		"new_task": "Ny uppgift",
+		"update_task": "Redigera uppgift",
+		"what": "Vad?",
+		"when": "När?",
+		"when_hour": "Vilken tid?",
+		"tomorrow": "Imorgon",
+		"next_week": "Nästa vecka",
+		"one_day": "En dag",
+		"confirm_delete_title": "Vill du verkligen ta bort uppgiften?",
+		"yes": "Ja",
+		"no": "Nej",
+		"delete": "Ta bort",
+		"delete_all": "Ta bort alla",
+		"save": "Spara",
+		"cancel": "Avbryt",
+		"close": "Stäng"
+	},
+	"Settings": {
+		"title": "Inställningar",
+		"time_notifications_label": "Vilken tid för aviseringarna?",
+		"notifications": "Aviseringar"
+	},
+	"Notifications": {
+		"let_s_go": "Nu kör vi!",
+		"what_are_you_going_to_do_today": "Vad ska du göra idag?",
+		"plan_your_day": "Planera din dag..."
+	}
+}

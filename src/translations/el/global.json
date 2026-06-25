@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Αρχική",
+		"today": "Σήμερα",
+		"task": "Εργασία",
+		"new_task": "Νέα εργασία",
+		"update_task": "Επεξεργασία εργασίας",
+		"what": "Τι;",
+		"when": "Πότε;",
+		"when_hour": "Τι ώρα;",
+		"tomorrow": "Αύριο",
+		"next_week": "Επόμενη εβδομάδα",
+		"one_day": "Κάποια μέρα",
+		"confirm_delete_title": "Θέλεις πραγματικά να διαγράψεις την εργασία;",
+		"yes": "Ναι",
+		"no": "Όχι",
+		"delete": "Διαγραφή",
+		"delete_all": "Διαγραφή όλων",
+		"save": "Αποθήκευση",
+		"cancel": "Άκυρο",
+		"close": "Κλείσιμο"
+	},
+	"Settings": {
+		"title": "Ρυθμίσεις",
+		"time_notifications_label": "Τι ώρα οι ειδοποιήσεις;",
+		"notifications": "Ειδοποιήσεις"
+	},
+	"Notifications": {
+		"let_s_go": "Πάμε!",
+		"what_are_you_going_to_do_today": "Τι θα κάνεις σήμερα;",
+		"plan_your_day": "Σχεδίασε τη μέρα σου..."
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Sākums",
+		"today": "Šodien",
+		"task": "Uzdevums",
+		"new_task": "Jauns uzdevums",
+		"update_task": "Rediģēt uzdevumu",
+		"what": "Ko?",
+		"when": "Kad?",
+		"when_hour": "Cikos?",
+		"tomorrow": "Rīt",
+		"next_week": "Nākamnedēļ",
+		"one_day": "Kādu dienu",
+		"confirm_delete_title": "Vai tiešām vēlies dzēst uzdevumu?",
+		"yes": "Jā",
+		"no": "Nē",
+		"delete": "Dzēst",
+		"delete_all": "Dzēst visu",
+		"save": "Saglabāt",
+		"cancel": "Atcelt",
+		"close": "Aizvērt"
+	},
+	"Settings": {
+		"title": "Iestatījumi",
+		"time_notifications_label": "Cikos paziņojumi?",
+		"notifications": "Paziņojumi"
+	},
+	"Notifications": {
+		"let_s_go": "Aiziet!",
+		"what_are_you_going_to_do_today": "Ko tu šodien darīsi?",
+		"plan_your_day": "Saplāno savu dienu..."
+	}
+}

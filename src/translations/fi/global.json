@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Etusivu",
+		"today": "Tänään",
+		"task": "Tehtävä",
+		"new_task": "Uusi tehtävä",
+		"update_task": "Muokkaa tehtävää",
+		"what": "Mitä?",
+		"when": "Milloin?",
+		"when_hour": "Mihin aikaan?",
+		"tomorrow": "Huomenna",
+		"next_week": "Ensi viikolla",
+		"one_day": "Joskus",
+		"confirm_delete_title": "Haluatko varmasti poistaa tehtävän?",
+		"yes": "Kyllä",
+		"no": "Ei",
+		"delete": "Poista",
+		"delete_all": "Poista kaikki",
+		"save": "Tallenna",
+		"cancel": "Peruuta",
+		"close": "Sulje"
+	},
+	"Settings": {
+		"title": "Asetukset",
+		"time_notifications_label": "Mihin aikaan ilmoitukset?",
+		"notifications": "Ilmoitukset"
+	},
+	"Notifications": {
+		"let_s_go": "Mennään!",
+		"what_are_you_going_to_do_today": "Mitä aiot tehdä tänään?",
+		"plan_your_day": "Suunnittele päiväsi..."
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Avaleht",
+		"today": "Täna",
+		"task": "Ülesanne",
+		"new_task": "Uus ülesanne",
+		"update_task": "Muuda ülesannet",
+		"what": "Mida?",
+		"when": "Millal?",
+		"when_hour": "Mis kell?",
+		"tomorrow": "Homme",
+		"next_week": "Järgmisel nädalal",
+		"one_day": "Kunagi",
+		"confirm_delete_title": "Kas soovid ülesande tõesti kustutada?",
+		"yes": "Jah",
+		"no": "Ei",
+		"delete": "Kustuta",
+		"delete_all": "Kustuta kõik",
+		"save": "Salvesta",
+		"cancel": "Tühista",
+		"close": "Sulge"
+	},
+	"Settings": {
+		"title": "Seaded",
+		"time_notifications_label": "Mis kell teavitused?",
+		"notifications": "Teavitused"
+	},
+	"Notifications": {
+		"let_s_go": "Läki!",
+		"what_are_you_going_to_do_today": "Mida sa täna teed?",
+		"plan_your_day": "Planeeri oma päev..."
+	}
+}

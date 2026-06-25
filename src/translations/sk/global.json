@@ -1,0 +1,33 @@
+{
+	"Home": {
+		"title": "Domov",
+		"today": "Dnes",
+		"task": "Úloha",
+		"new_task": "Nová úloha",
+		"update_task": "Upraviť úlohu",
+		"what": "Čo?",
+		"when": "Kedy?",
+		"when_hour": "O koľkej hodine?",
+		"tomorrow": "Zajtra",
+		"next_week": "Budúci týždeň",
+		"one_day": "Niekedy",
+		"confirm_delete_title": "Naozaj chceš úlohu odstrániť?",
+		"yes": "Áno",
+		"no": "Nie",
+		"delete": "Odstrániť",
+		"delete_all": "Odstrániť všetko",
+		"save": "Uložiť",
+		"cancel": "Zrušiť",
+		"close": "Zavrieť"
+	},
+	"Settings": {
+		"title": "Nastavenia",
+		"time_notifications_label": "O koľkej hodine oznámenia?",
+		"notifications": "Oznámenia"
+	},
+	"Notifications": {
+		"let_s_go": "Poďme na to!",
+		"what_are_you_going_to_do_today": "Čo dnes budeš robiť?",
+		"plan_your_day": "Naplánuj si deň..."
+	}
+}
