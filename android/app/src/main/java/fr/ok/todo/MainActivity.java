@@ -1,4 +1,4 @@
-package com.ok.todo;
+package fr.ok.todo;
 
 import com.getcapacitor.BridgeActivity;
 

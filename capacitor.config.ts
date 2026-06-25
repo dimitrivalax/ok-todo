@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.ok.todo',
+  appId: 'fr.ok.todo',
   appName: 'Ok! Todo',
   webDir: 'dist',
   "plugins": {
