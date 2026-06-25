@@ -19,6 +19,15 @@ import './commands'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
+// The app auto-detects its UI language from `navigator.language` at startup
+// (see src/translations/i18n.ts). Under headless Electron this resolves to
+// English, but the e2e specs assert the French UI. Force French on every page
+// load (covers cy.visit and cy.reload) before the app bundle initializes.
+Cypress.on('window:before:load', (win) => {
+  Object.defineProperty(win.navigator, 'language', { value: 'fr-FR', configurable: true })
+  Object.defineProperty(win.navigator, 'languages', { value: ['fr-FR', 'fr'], configurable: true })
+})
+
 // The Capacitor LocalNotifications plugin is unavailable when the app runs in a
 // desktop browser (as it does under Cypress). Those runtime errors are expected
 // and unrelated to the UI behavior we test here, so we swallow them.
