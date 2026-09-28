@@ -17,11 +17,15 @@ as JSON. Tasks are kept under the `tasks` key, settings under `settings`, and
 scheduled notification ids under `notificationIds`. Access is centralized in
 service modules:
 
+- [src/services/storage.services.ts](../../src/services/storage.services.ts)
+  provides shared `readJson` / `writeJson` helpers.
 - [src/services/task.services.tsx](../../src/services/task.services.tsx) reads
-  and writes the `tasks` array (`getTasks`, `saveNewtTask`, `updateTask`,
+  and writes the `tasks` array (`getTasks`, `saveNewTask`, `updateTask`,
   `removeTask`).
 - [src/services/settings.services.tsx](../../src/services/settings.services.tsx)
   reads and writes the `settings` object.
+- Notification bookkeeping also uses `localStorage` keys `notificationIds` and
+  `notificationIdCounter` (see [ADR-0004](0004-local-notifications-via-capacitor.md)).
 
 ## Consequences
 
