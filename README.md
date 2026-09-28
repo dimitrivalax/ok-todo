@@ -54,6 +54,8 @@ App id: `fr.ok.todo`.
 - [Development](docs/development.md)
 - [Architecture Decision Records](docs/adr/README.md)
 - Privacy policy: [Français](docs/privacy-policy.html) · [English](docs/privacy-policy.en.html)
+- Play Store listing: [Français](docs/play-store.fr.md) · [English](docs/play-store.en.md)
+- App Store listing: [Français](docs/app-store.fr.md) · [English](docs/app-store.en.md)
 
 ## License
 
