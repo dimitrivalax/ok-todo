@@ -1,65 +1,80 @@
-import { IonAlert, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonModal, IonRow, IonTitle, IonToolbar } from '@ionic/react';
-import TaskForm from './TaskForm';
-import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
-import { removeTask, saveNewTask, updateTask } from '../../services/task.services';
+import { useTranslation } from 'react-i18next';
+import {
+  IonAlert,
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonModal,
+  IonRow,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/react';
 import { trashOutline } from 'ionicons/icons';
+import { TaskForm } from './TaskForm';
+import { removeTask, saveNewTask, updateTask } from '../../services/task.services';
 import type { Task } from '../../global/types';
 
-interface Props {
+type Props = {
   task: Task;
   onClose: () => void;
-}
+};
 
-const TaskModal: React.FC<Props> = (props) => {
+export function TaskModal({ task: initialTask, onClose }: Props) {
   const { t } = useTranslation();
-  const [task, setTask] = useState<Task>(props.task)
-  const [saveDisabled, setSaveDisabled] = useState(true)
-  const [isDeleteAlertOpen, setIsDeleteAlertOpen] = useState(false)
+  const [task, setTask] = useState<Task>(initialTask);
+  const [isSaveDisabled, setIsSaveDisabled] = useState(true);
+  const [isDeleteAlertOpen, setIsDeleteAlertOpen] = useState(false);
 
-  function onWillDismiss() {
-    props.onClose()
+  const isEditing = Boolean(initialTask.id);
+
+  function handleWillDismiss() {
+    onClose();
   }
 
-  function onFormChange(task: Task) {
-    setTask(task)
-    setSaveDisabled(false)
+  function handleFormChange(next: Task) {
+    setTask(next);
+    setIsSaveDisabled(false);
   }
 
-  async function save() {
+  async function handleSave() {
     if (task.id) {
-      await updateTask(task)
+      await updateTask(task);
     } else {
-      await saveNewTask(task)
+      await saveNewTask(task);
     }
-
-    props.onClose()
+    onClose();
   }
-  function remove() {
-    removeTask(props.task)
-    props.onClose()
+
+  function handleRemove() {
+    removeTask(task);
+    onClose();
   }
 
   return (
-    <IonModal isOpen={true} onWillDismiss={() => onWillDismiss()}>
+    <IonModal isOpen={true} onWillDismiss={handleWillDismiss}>
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonButton onClick={() => onWillDismiss()}>{t('Home.cancel')}</IonButton>
+            <IonButton onClick={handleWillDismiss}>{t('Home.cancel')}</IonButton>
           </IonButtons>
-          <IonTitle>{props.task.id ? t('Home.update_task') : t('Home.new_task')}</IonTitle>
+          <IonTitle>{isEditing ? t('Home.update_task') : t('Home.new_task')}</IonTitle>
           <IonButtons slot="end">
-            <IonButton onClick={() => save()} disabled={!task.label || saveDisabled}>{t('Home.save')}</IonButton>
+            <IonButton onClick={handleSave} disabled={!task.label || isSaveDisabled}>
+              {t('Home.save')}
+            </IonButton>
           </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <TaskForm onChange={(task: Task) => onFormChange(task)} task={props.task}></TaskForm>
-        {props.task.id &&
+        <TaskForm task={task} onChange={handleFormChange} />
+        {isEditing && (
           <>
-            <IonRow class="ion-justify-content-center ion-margin-top">
+            <IonRow className="ion-justify-content-center ion-margin-top">
               <IonButton shape="round" color="danger" onClick={() => setIsDeleteAlertOpen(true)}>
-                <IonIcon slot="start" icon={trashOutline}></IonIcon>
+                <IonIcon slot="start" icon={trashOutline} />
                 {t('Home.delete')}
               </IonButton>
             </IonRow>
@@ -74,18 +89,16 @@ const TaskModal: React.FC<Props> = (props) => {
                 {
                   text: t('Home.yes'),
                   role: 'confirm',
-                  handler: () => {
-                    remove();
-                  },
+                  handler: handleRemove,
                 },
               ]}
               onDidDismiss={() => setIsDeleteAlertOpen(false)}
-            ></IonAlert>
+            />
           </>
-        }
+        )}
       </IonContent>
     </IonModal>
   );
-};
+}
 
 export default TaskModal;

@@ -103,12 +103,18 @@ const HomeContainer: React.FC = () => {
 					<IonIcon icon={add}></IonIcon>
 				</IonFabButton>
 			</IonFab>
-			{openNewTaskModal && <TaskModal onClose={() => closeTaskModal()} task={selectedTask || {
-				id: "",
-				label: "",
-				dueTime: null,
-				complete: false,
-			}} ></TaskModal>}
+			{openNewTaskModal && (
+				<TaskModal
+					key={selectedTask?.id || 'new'}
+					onClose={() => closeTaskModal()}
+					task={selectedTask || {
+						id: "",
+						label: "",
+						dueTime: null,
+						complete: false,
+					}}
+				/>
+			)}
 		</>
 	);
 };
