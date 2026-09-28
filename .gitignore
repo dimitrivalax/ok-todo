@@ -37,3 +37,9 @@ yarn-error.log*
 
 # Cursor
 .cursor
+
+# .env files
+.env
+
+# Google Cloud
+google-services.json
