@@ -112,11 +112,12 @@ http://ionicframework.com/docs/theming/ */
 	--ion-background-color-step-950: #252525;
 
 	/*
-	 * Selected tab labels use --ion-color-primary as text on a light tab bar.
-	 * #39AFEA on white is only ~2.5:1 (fails WCAG AA). Keep the bright primary
-	 * for filled controls (toolbar/FAB); use a darker selected-tab color instead.
+	 * Selected tab labels use primary as text on the tab bar. #39AFEA fails AA
+	 * on white (~2.5:1). Focused MD tabs also tint the button (~#d6e8f2), so the
+	 * selected color must clear 4.5:1 on that surface too. Keep bright primary
+	 * for filled controls (toolbar/FAB).
 	 */
-	--ion-tab-bar-color-selected: #0070ad;
+	--ion-tab-bar-color-selected: #006094;
 }
 
 @media (prefers-color-scheme: dark) {
