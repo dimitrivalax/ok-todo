@@ -85,6 +85,16 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    a11y: {
+      // Fail Storybook/Vitest CI runs when axe finds WCAG violations.
+      test: 'error',
+      options: {
+        runOnly: {
+          type: 'tag',
+          values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'],
+        },
+      },
+    },
   },
 };
 
