@@ -40,13 +40,13 @@ export function TaskModal({ task: initialTask, onClose, onSave, onDelete }: Prop
   return (
     <IonModal isOpen={true} onWillDismiss={onClose}>
       <IonHeader>
-        <IonToolbar color="primary">
+        <IonToolbar>
           <IonButtons slot="start">
             <IonButton onClick={onClose}>{t('Home.cancel')}</IonButton>
           </IonButtons>
           <IonTitle>{isEditing ? t('Home.update_task') : t('Home.new_task')}</IonTitle>
           <IonButtons slot="end">
-            <IonButton onClick={handleSave} disabled={!canSave}>
+            <IonButton strong onClick={handleSave} disabled={!canSave}>
               {t('Home.save')}
             </IonButton>
           </IonButtons>
