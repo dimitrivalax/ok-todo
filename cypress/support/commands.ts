@@ -27,7 +27,15 @@ Cypress.Commands.add('checkPageA11y', (context = null) => {
       cy.task(
         'log',
         violations
-          .map((v) => `[${v.impact ?? 'unknown'}] ${v.id}: ${v.help} (${v.nodes.length})`)
+          .map((v) => {
+            const nodes = v.nodes
+              .map(
+                (n) =>
+                  `  - ${n.target.join(' ')} :: ${n.failureSummary?.replace(/\n/g, ' | ') ?? n.html}`,
+              )
+              .join('\n')
+            return `[${v.impact ?? 'unknown'}] ${v.id}: ${v.help} (${v.nodes.length})\n${nodes}`
+          })
           .join('\n'),
       )
     },
