@@ -43,3 +43,6 @@ yarn-error.log*
 
 # Google Cloud
 google-services.json
+
+*storybook.log
+storybook-static
