@@ -14,55 +14,47 @@ import {
 } from '@ionic/react';
 import { trashOutline } from 'ionicons/icons';
 import { TaskForm } from './TaskForm';
-import { removeTask, saveNewTask, updateTask } from '../../services/task.services';
 import type { Task } from '../../global/types';
 
 type Props = {
   task: Task;
   onClose: () => void;
+  onSave: (task: Task) => void | Promise<void>;
+  onDelete?: (task: Task) => void;
 };
 
-export function TaskModal({ task: initialTask, onClose }: Props) {
+export function TaskModal({ task: initialTask, onClose, onSave, onDelete }: Props) {
   const { t } = useTranslation();
   const [task, setTask] = useState<Task>(initialTask);
-  const [isSaveDisabled, setIsSaveDisabled] = useState(true);
+  const [isDirty, setIsDirty] = useState(false);
   const [isDeleteAlertOpen, setIsDeleteAlertOpen] = useState(false);
 
   const isEditing = Boolean(initialTask.id);
-
-  function handleWillDismiss() {
-    onClose();
-  }
+  const canSave = isDirty && Boolean(task.label.trim());
 
   function handleFormChange(next: Task) {
     setTask(next);
-    setIsSaveDisabled(false);
+    setIsDirty(true);
   }
 
   async function handleSave() {
-    if (task.id) {
-      await updateTask(task);
-    } else {
-      await saveNewTask(task);
-    }
-    onClose();
+    await onSave(task);
   }
 
   function handleRemove() {
-    removeTask(task);
-    onClose();
+    onDelete?.(task);
   }
 
   return (
-    <IonModal isOpen={true} onWillDismiss={handleWillDismiss}>
+    <IonModal isOpen={true} onWillDismiss={onClose}>
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonButton onClick={handleWillDismiss}>{t('Home.cancel')}</IonButton>
+            <IonButton onClick={onClose}>{t('Home.cancel')}</IonButton>
           </IonButtons>
           <IonTitle>{isEditing ? t('Home.update_task') : t('Home.new_task')}</IonTitle>
           <IonButtons slot="end">
-            <IonButton onClick={handleSave} disabled={!task.label || isSaveDisabled}>
+            <IonButton onClick={handleSave} disabled={!canSave}>
               {t('Home.save')}
             </IonButton>
           </IonButtons>
@@ -70,7 +62,7 @@ export function TaskModal({ task: initialTask, onClose }: Props) {
       </IonHeader>
       <IonContent className="ion-padding">
         <TaskForm task={task} onChange={handleFormChange} />
-        {isEditing && (
+        {isEditing && onDelete && (
           <>
             <IonRow className="ion-justify-content-center ion-margin-top">
               <IonButton shape="round" color="danger" onClick={() => setIsDeleteAlertOpen(true)}>

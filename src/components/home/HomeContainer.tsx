@@ -3,8 +3,9 @@ import { add } from 'ionicons/icons';
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import TaskModal from "../task/TaskModal";
-import { getTasks, sortTaskByDueTime, updateTask } from "../../services/task.services";
+import { getTasks, removeTask, saveNewTask, sortTaskByDueTime, updateTask } from "../../services/task.services";
 import TaskItem from "../task/TaskItem";
+import { createEmptyTask } from "../task/task.defaults";
 import { format } from "date-fns";
 import type { Task } from "../../global/types";
 
@@ -41,6 +42,20 @@ const HomeContainer: React.FC = () => {
 		setSelectedTask(undefined)
 		setTasks(getTasks())
 		setOpenNewTaskModal(false)
+	}
+
+	async function handleSaveTask(task: Task) {
+		if (task.id) {
+			await updateTask(task);
+		} else {
+			await saveNewTask(task);
+		}
+		closeTaskModal();
+	}
+
+	function handleDeleteTask(task: Task) {
+		removeTask(task);
+		closeTaskModal();
 	}
 
 	function onSelectTask(task: Task) {
@@ -106,13 +121,10 @@ const HomeContainer: React.FC = () => {
 			{openNewTaskModal && (
 				<TaskModal
 					key={selectedTask?.id || 'new'}
-					onClose={() => closeTaskModal()}
-					task={selectedTask || {
-						id: "",
-						label: "",
-						dueTime: null,
-						complete: false,
-					}}
+					onClose={closeTaskModal}
+					onSave={handleSaveTask}
+					onDelete={selectedTask ? handleDeleteTask : undefined}
+					task={selectedTask || createEmptyTask()}
 				/>
 			)}
 		</>

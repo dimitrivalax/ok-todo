@@ -1,11 +1,7 @@
 import type { Task } from '../../global/types';
+import { createEmptyTask } from './task.defaults';
 
-export const emptyTask: Task = {
-  id: '',
-  label: '',
-  dueTime: null,
-  complete: false,
-};
+export const emptyTask: Task = createEmptyTask();
 
 export const sampleTask: Task = {
   id: '1',
