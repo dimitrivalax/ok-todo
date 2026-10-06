@@ -111,9 +111,15 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^6.0.2
         version: 6.0.2(vite@8.0.16(@types/node@26.0.0)(esbuild@0.28.2)(terser@5.48.0))
+      axe-core:
+        specifier: ^4.13.0
+        version: 4.13.0
       cypress:
         specifier: ^15.17.0
         version: 15.17.0
+      cypress-axe:
+        specifier: ^1.7.0
+        version: 1.7.0(axe-core@4.13.0)(cypress@15.17.0)
       eslint:
         specifier: ^9.39.4
         version: 9.39.4
@@ -2166,6 +2172,13 @@ packages:
 
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
+
+  cypress-axe@1.7.0:
+    resolution: {integrity: sha512-zzJpvAAjauEB3GZl0KYXb8i3w6MztWAt2WM3czYTFyNVC30alDmqCm9E7GwZ4bgkldZJlmHakaVEyu73R5St4w==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      axe-core: ^3 || ^4
+      cypress: ^10 || ^11 || ^12 || ^13 || ^14 || ^15
 
   cypress@15.17.0:
     resolution: {integrity: sha512-WL5Gcqi1GaDWozBwXmkSAtOPafTsVSRS764iX6xvuz3DPzvBAxbkRyEi4BreVdVWxLDpiYRgZCyJUafBw44njw==}
@@ -6271,6 +6284,11 @@ snapshots:
   css.escape@1.5.1: {}
 
   csstype@3.2.3: {}
+
+  cypress-axe@1.7.0(axe-core@4.13.0)(cypress@15.17.0):
+    dependencies:
+      axe-core: 4.13.0
+      cypress: 15.17.0
 
   cypress@15.17.0:
     dependencies:

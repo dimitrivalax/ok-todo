@@ -20,6 +20,17 @@ type TaskSectionProps = {
 };
 
 function TaskSection({ color, title, tasks, onSelect, onDone, onUndone }: TaskSectionProps) {
+  // Avoid an empty `role="list"` (header only): axe flags it as aria-required-children.
+  if (tasks.length === 0) {
+    return (
+      <IonCard mode="ios">
+        <IonListHeader color={color}>
+          <IonLabel>{title}</IonLabel>
+        </IonListHeader>
+      </IonCard>
+    );
+  }
+
   return (
     <IonCard mode="ios">
       <IonList inset={true} lines="inset">
@@ -115,8 +126,11 @@ export function HomeContainer() {
         onUndone={(task) => handleSetComplete(task, false)}
       />
       <IonFab horizontal="end" vertical="bottom" slot="fixed">
-        <IonFabButton onClick={() => setModalTask(createEmptyTask())}>
-          <IonIcon icon={add} />
+        <IonFabButton
+          aria-label={t('Home.new_task')}
+          onClick={() => setModalTask(createEmptyTask())}
+        >
+          <IonIcon aria-hidden="true" icon={add} />
         </IonFabButton>
       </IonFab>
       {modalTask && (

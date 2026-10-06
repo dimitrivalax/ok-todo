@@ -7,6 +7,12 @@ export default defineConfig({
     includeShadowDom: true,
     defaultCommandTimeout: 10000,
     setupNodeEvents(on, config) {
+      on("task", {
+        log(message: string) {
+          console.log(message);
+          return null;
+        },
+      });
       return config;
     },
   },

@@ -40,7 +40,7 @@ export function TaskModal({ task: initialTask, onClose, onSave, onDelete }: Prop
   return (
     <IonModal isOpen={true} onWillDismiss={onClose}>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color="primary">
           <IonButtons slot="start">
             <IonButton onClick={onClose}>{t('Home.cancel')}</IonButton>
           </IonButtons>
@@ -58,7 +58,7 @@ export function TaskModal({ task: initialTask, onClose, onSave, onDelete }: Prop
           <>
             <IonRow className="ion-justify-content-center ion-margin-top">
               <IonButton shape="round" color="danger" onClick={openDeleteAlert}>
-                <IonIcon slot="start" icon={trashOutline} />
+                <IonIcon slot="start" icon={trashOutline} aria-hidden="true" />
                 {t('Home.delete')}
               </IonButton>
             </IonRow>
