@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   IonAlert,
@@ -14,6 +13,7 @@ import {
 } from '@ionic/react';
 import { trashOutline } from 'ionicons/icons';
 import { TaskForm } from './TaskForm';
+import { useTaskModal } from './useTaskModal';
 import type { Task } from '../../global/types';
 
 type Props = {
@@ -25,25 +25,17 @@ type Props = {
 
 export function TaskModal({ task: initialTask, onClose, onSave, onDelete }: Props) {
   const { t } = useTranslation();
-  const [task, setTask] = useState<Task>(initialTask);
-  const [isDirty, setIsDirty] = useState(false);
-  const [isDeleteAlertOpen, setIsDeleteAlertOpen] = useState(false);
-
-  const isEditing = Boolean(initialTask.id);
-  const canSave = isDirty && Boolean(task.label.trim());
-
-  function handleFormChange(next: Task) {
-    setTask(next);
-    setIsDirty(true);
-  }
-
-  async function handleSave() {
-    await onSave(task);
-  }
-
-  function handleRemove() {
-    onDelete?.(task);
-  }
+  const {
+    task,
+    isEditing,
+    canSave,
+    isDeleteAlertOpen,
+    handleFormChange,
+    handleSave,
+    handleRemove,
+    openDeleteAlert,
+    closeDeleteAlert,
+  } = useTaskModal(initialTask, { onSave, onDelete });
 
   return (
     <IonModal isOpen={true} onWillDismiss={onClose}>
@@ -65,7 +57,7 @@ export function TaskModal({ task: initialTask, onClose, onSave, onDelete }: Prop
         {isEditing && onDelete && (
           <>
             <IonRow className="ion-justify-content-center ion-margin-top">
-              <IonButton shape="round" color="danger" onClick={() => setIsDeleteAlertOpen(true)}>
+              <IonButton shape="round" color="danger" onClick={openDeleteAlert}>
                 <IonIcon slot="start" icon={trashOutline} />
                 {t('Home.delete')}
               </IonButton>
@@ -84,7 +76,7 @@ export function TaskModal({ task: initialTask, onClose, onSave, onDelete }: Prop
                   handler: handleRemove,
                 },
               ]}
-              onDidDismiss={() => setIsDeleteAlertOpen(false)}
+              onDidDismiss={closeDeleteAlert}
             />
           </>
         )}
