@@ -1,0 +1,1 @@
+../../.cursor/rules/react/patterns.mdc
