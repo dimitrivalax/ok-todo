@@ -35,7 +35,7 @@
     "ionicons": "^8.1.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-i18next": "^17.0.8",
+    "react-i18next": "^17.1.13",
     "react-router": "^6.30.6",
     "react-router-dom": "^6.30.6",
     "uuid": "^14.0.3"
