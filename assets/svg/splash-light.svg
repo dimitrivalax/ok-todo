@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2732 2732" width="2732" height="2732">
+  <defs>
+    <radialGradient id="splash-bg-light" cx="50%" cy="46%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F2F8FD"/>
+    </radialGradient>
+    <filter id="icon-shadow" x="-25%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="32" stdDeviation="42" flood-color="#1473B5" flood-opacity="0.22"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#1473B5" flood-opacity="0.12"/>
+    </filter>
+    <clipPath id="splash-icon-clip">
+      <rect x="1026" y="1026" width="680" height="680" rx="156"/>
+    </clipPath>
+    <linearGradient id="bg-grad" x1="12%" y1="6%" x2="88%" y2="94%">
+      <stop offset="0%" stop-color="#4EC7FA"/>
+      <stop offset="48%" stop-color="#39AFEA"/>
+      <stop offset="100%" stop-color="#1986D1"/>
+    </linearGradient>
+    <radialGradient id="bg-glow" cx="28%" cy="18%" r="68%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.24"/>
+      <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="card-grad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F4F9FD"/>
+    </linearGradient>
+    <filter id="card-shadow" x="-15%" y="-12%" width="130%" height="134%">
+      <feDropShadow dx="0" dy="26" stdDeviation="30" flood-color="#0A4E82" flood-opacity="0.28"/>
+    </filter>
+    <linearGradient id="badge-green" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#5CE286"/>
+      <stop offset="100%" stop-color="#2FC464"/>
+    </linearGradient>
+    <linearGradient id="bar-green" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#6FE390"/>
+      <stop offset="100%" stop-color="#86E9A2"/>
+    </linearGradient>
+    <linearGradient id="badge-yellow" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#F0C946"/>
+      <stop offset="100%" stop-color="#D49A1D"/>
+    </linearGradient>
+    <linearGradient id="bar-yellow" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#E6C554"/>
+      <stop offset="100%" stop-color="#F0D679"/>
+    </linearGradient>
+    <linearGradient id="badge-coral" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#F06A75"/>
+      <stop offset="100%" stop-color="#D94250"/>
+    </linearGradient>
+    <linearGradient id="bar-coral" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#E55B67"/>
+      <stop offset="100%" stop-color="#F07B85"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="2732" height="2732" fill="url(#splash-bg-light)"/>
+
+  <g filter="url(#icon-shadow)">
+    <rect x="1026" y="1026" width="680" height="680" rx="156" fill="url(#bg-grad)"/>
+  </g>
+  <g clip-path="url(#splash-icon-clip)">
+    <g transform="translate(1026 1026) scale(0.6640625)">
+      <rect width="1024" height="1024" fill="url(#bg-grad)"/>
+      <rect width="1024" height="1024" fill="url(#bg-glow)"/>
+      <g filter="url(#card-shadow)">
+        <rect x="166" y="152" width="692" height="720" rx="126" fill="url(#card-grad)"/>
+      </g>
+      <g>
+        <circle cx="304" cy="332" r="58" fill="url(#badge-green)"/>
+        <path d="M277 334 L296 353 L334 313" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="394" y="302" width="388" height="60" rx="30" fill="url(#bar-green)"/>
+      </g>
+      <g>
+        <circle cx="304" cy="512" r="58" fill="url(#badge-yellow)"/>
+        <path d="M277 514 L296 533 L334 493" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="394" y="482" width="328" height="60" rx="30" fill="url(#bar-yellow)"/>
+      </g>
+      <g>
+        <circle cx="304" cy="692" r="58" fill="url(#badge-coral)"/>
+        <path d="M277 694 L296 713 L334 673" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="394" y="662" width="268" height="60" rx="30" fill="url(#bar-coral)"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Row 1 checkmark & bar -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M31.2,37.68 L36.0,42.48 L45.12,32.88"
+        android:strokeColor="#000000"
+        android:strokeWidth="5.64"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54.86,37.68 L73.3,37.68"
+        android:strokeColor="#000000"
+        android:strokeWidth="7.0"
+        android:strokeLineCap="round"/>
+
+    <!-- Row 2 checkmark & bar -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M31.2,54.0 L36.0,58.8 L45.12,49.2"
+        android:strokeColor="#000000"
+        android:strokeWidth="5.64"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54.86,54.0 L69.7,54.0"
+        android:strokeColor="#000000"
+        android:strokeWidth="7.0"
+        android:strokeLineCap="round"/>
+
+    <!-- Row 3 checkmark & bar -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M31.2,70.32 L36.0,75.12 L45.12,65.52"
+        android:strokeColor="#000000"
+        android:strokeWidth="5.64"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54.86,70.32 L66.1,70.32"
+        android:strokeColor="#000000"
+        android:strokeWidth="7.0"
+        android:strokeLineCap="round"/>
+</vector>
